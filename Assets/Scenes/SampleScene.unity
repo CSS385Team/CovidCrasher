@@ -319,6 +319,7 @@ MonoBehaviour:
   pos: {fileID: 1337452312}
   projectile: {fileID: 9130222124356816768, guid: dea6b0904e3b1204d883d48127054152,
     type: 3}
+  water: {fileID: 7886527958679982295, guid: dea6b0904e3b1204d883d48127054152, type: 3}
 --- !u!1001 &1225958588
 PrefabInstance:
   m_ObjectHideFlags: 0

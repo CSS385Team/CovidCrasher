@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
     public Transform pos;
     public GameObject projectile;
     private float timeSpawn = 0f;
+    public WaterBlaster water;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +78,6 @@ public class Weapon : MonoBehaviour
      */
     void throwWeapon()
     {
-        // not sure what the parameter 'int button' is supposed to do for GetMouseButtonDown(int button)
         if(Input.GetMouseButtonDown(0))
         {
             Instantiate(projectile, pos.position, pos.rotation );
@@ -85,13 +86,28 @@ public class Weapon : MonoBehaviour
 
     void blasterWeapon(float angle)
     {
-        // not sure what the parameter 'int button' is supposed to do for GetMouseButton(int button)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("Activated!");
+            water.tripleShot = !water.tripleShot;
+        }
+
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {
             timeSpawn = Time.time;
-            Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
-            //Quaternion aim = Quaternion.Euler(pos.rotation.x, pos.rotation.y, pos.rotation.z + 10f);
-            //projectile.transform.rotation = aim;
+            if (water.tripleShot)
+            {
+                Debug.Log("Triple Shot");
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 135f))); // slightly upwards
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
+
+            }
+            else
+            {
+                Debug.Log("Single Shot");
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
+            }
         }
 
     }
