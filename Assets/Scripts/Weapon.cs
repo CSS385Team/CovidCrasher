@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour
                blasterWeapon();
        }*/
 
-        blasterWeapon();
+        blasterWeapon(angle);
     }
 
 
@@ -79,18 +79,17 @@ public class Weapon : MonoBehaviour
         // not sure what the parameter 'int button' is supposed to do for GetMouseButtonDown(int button)
         if(Input.GetMouseButtonDown(0))
         {
-            Instantiate(projectile, pos.position, pos.rotation);
+            Instantiate(projectile, pos.position, pos.rotation );
         }
     }
 
-    void blasterWeapon()
+    void blasterWeapon(float angle)
     {
         // not sure what the parameter 'int button' is supposed to do for GetMouseButton(int button)
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {
             timeSpawn = Time.time;
-            Debug.Log(pos.rotation.z );
-            Instantiate(projectile, pos.position, pos.rotation);
+            Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
             //Quaternion aim = Quaternion.Euler(pos.rotation.x, pos.rotation.y, pos.rotation.z + 10f);
             //projectile.transform.rotation = aim;
         }
