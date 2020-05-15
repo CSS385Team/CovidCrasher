@@ -14,7 +14,6 @@ public class GameControlScript : MonoBehaviour {
 	public Text strokeText;
 	public int strokesAmount;
 
-    [SerializeField] private UIInventory uiinventory;
 	// Common variables
 	private bool isSanitizerSold, isIcePackSold;
 	public int sanitizerPrice = 10, icePackPrice = 20;
@@ -33,8 +32,6 @@ public class GameControlScript : MonoBehaviour {
         // set prices for goods
         //sanitizerPriceText.text = sanitizerPrice.ToString() + " Points";
         //icePackPriceText.text = icePackPrice.ToString() + " Points";
-        inventroy = new Inventory();
-        uiinventory.setInventory(inventroy);
 	}
 	
 	// Update is called once per frame

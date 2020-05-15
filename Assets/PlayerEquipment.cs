@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIStore : MonoBehaviour
+public class PlayerEquipment : MonoBehaviour
 {
-    private Transform shopItemTemplate;
+    public GameObject Equiped;
+    public GameObject Weapon;
+    public GameObject EquipmentSlot;
     // Start is called before the first frame update
-
     void Start()
     {
-        shopItemTemplate = transform.Find("ShopItemTemplate");
-        shopItemTemplate.gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
