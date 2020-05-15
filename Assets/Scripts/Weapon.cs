@@ -84,6 +84,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    // this method handles instantiating the water gun bullets
     void blasterWeapon(float angle)
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -95,6 +96,8 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {
             timeSpawn = Time.time;
+            
+            // activate triple shot upgrade
             if (water.tripleShot)
             {
                 Debug.Log("Triple Shot");
@@ -103,6 +106,7 @@ public class Weapon : MonoBehaviour
                 Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
 
             }
+            // do a single shot
             else
             {
                 Debug.Log("Single Shot");
