@@ -9,10 +9,13 @@ using UnityEngine;
  * spawn weapon projectiles at the press 
  * of a button.
  */
-public class Shooting : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     public Transform pos;
     public GameObject projectile;
+    private float timeSpawn = 0f;
+    public WaterBlaster water;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,18 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // https://answers.unity.com/questions/855976/make-a-player-model-rotate-towards-mouse-location.html
+        // above is reference from which I obtained the three lines of code below
+        // have a vector that holds mouse position in screen
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
+
+        // call method that calculates angle between mouse and player character
+        float angle = AngleBetweenPoints(pos.position, mouseWorldPosition);
+
+        // rotate player accordingly, had to add 180f because due to the sprites orientation, player would look behind the mouse
+        pos.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 180f));
+
         /*
          * switch case statement goes in the update function
          * check which game object type projectile is.
@@ -33,13 +48,25 @@ public class Shooting : MonoBehaviour
          * once per click, while guns can fire
          * successively while holding the mouse down.
          */
-        switch(projectile)
-        {
-            // case ThrowableWeapon:
-                // throwWeapon();
-            // case Blaster:
-                // blasterWeapon();
-        }
+
+        /*
+       switch(projectile)
+       {
+           case ThrowableWeapon:
+               throwWeapon();
+           case WaterBlaster.:
+               blasterWeapon();
+       }*/
+
+        blasterWeapon(angle);
+    }
+
+
+    // https://answers.unity.com/questions/855976/make-a-player-model-rotate-towards-mouse-location.html
+    // this method that calculates the angle between two vectors was found from the source above
+    float AngleBetweenPoints(Vector2 a, Vector2 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 
     /*
@@ -51,19 +78,47 @@ public class Shooting : MonoBehaviour
      */
     void throwWeapon()
     {
-        // not sure what the parameter 'int button' is supposed to do for GetMouseButtonDown(int button)
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(0))
         {
-            Instantiate(projectile, pos.position, pos.rotation);
+            Instantiate(projectile, pos.position, pos.rotation );
         }
     }
 
-    void blasterWeapon()
+    // this method handles instantiating the water gun bullets
+    void blasterWeapon(float angle)
     {
-        // not sure what the parameter 'int button' is supposed to do for GetMouseButton(int button)
-        if (Input.GetMouseButton(1))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            Instantiate(projectile, pos.position, pos.rotation);
+            Debug.Log("Activated!");
+            water.tripleShot = !water.tripleShot;
         }
+
+        if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
+        {
+            timeSpawn = Time.time;
+            
+            // activate triple shot upgrade
+            if (water.tripleShot)
+            {
+                Debug.Log("Triple Shot");
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 135f))); // slightly upwards
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
+
+            }
+            // do a single shot
+            else
+            {
+                Debug.Log("Single Shot");
+                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
+            }
+        }
+
+    }
+
+    // this public method can be used to change the weapon that is equipped
+    public void equipWeapon(GameObject weapon)
+    {
+        projectile = weapon;
     }
 }
