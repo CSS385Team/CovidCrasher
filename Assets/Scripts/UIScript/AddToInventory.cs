@@ -25,4 +25,9 @@ public class AddToInventory : MonoBehaviour
 
         }
     }
+
+    public void setImagePrefab(GameObject imagePrefab)
+    {
+        InventoryItemPrefab = imagePrefab;
+    }
 }
