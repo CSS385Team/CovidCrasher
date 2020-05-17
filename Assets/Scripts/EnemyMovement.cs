@@ -12,10 +12,11 @@ public class EnemyMovement : MonoBehaviour
 	public float speed;
     private Rigidbody2D rb;
     private Vector2 mv;
-
+    private float tempSpeed;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tempSpeed = speed;
     }
 
     void Update()
@@ -28,4 +29,24 @@ public class EnemyMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + mv * Time.fixedDeltaTime);
     }
+
+
+    // Gabe: Funtion inspired by Playground Challenge Code "ConditionArea"
+    void OnTriggerStay2D(Collider2D otherCollider)
+	{
+		if(otherCollider.CompareTag("Mucus"))
+		{
+            Debug.Log("Collided!");
+			this.speed = 2;
+		}
+	}
+
+    private void OnTriggerExit2D(Collider2D otherCollider)
+	{
+		if(otherCollider.CompareTag("Mucus"))
+		{
+			this.speed = tempSpeed;
+        }
+	}
+
 }
