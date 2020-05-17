@@ -131,12 +131,12 @@ PrefabInstance:
     - target: {fileID: 2690063108403331138, guid: 897ad6a8dddfe6f45b933ff0b7d4602c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000035762787
+      value: -1.0730002
       objectReference: {fileID: 0}
     - target: {fileID: 2690063108403331138, guid: 897ad6a8dddfe6f45b933ff0b7d4602c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.50000024
+      value: -0.50800025
       objectReference: {fileID: 0}
     - target: {fileID: 2690063108403331138, guid: 897ad6a8dddfe6f45b933ff0b7d4602c,
         type: 3}
@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraFollowPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 2690063108403331197, guid: 897ad6a8dddfe6f45b933ff0b7d4602c,
+        type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1337452312}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897ad6a8dddfe6f45b933ff0b7d4602c, type: 3}
 --- !u!1 &519420028
@@ -302,7 +307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000035762787, y: -0.50000024, z: -10}
+  m_LocalPosition: {x: -1.0730002, y: -0.50800025, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
