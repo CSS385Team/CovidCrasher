@@ -28,4 +28,16 @@ public class EnemyMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + mv * Time.fixedDeltaTime);
     }
+
+
+    // Gabe: Funtion inspired by Playground Challenge Code "ConditionArea"
+    void OnTriggerStay2D(Collider2D otherCollider)
+	{
+		if(otherCollider.CompareTag("Mucus"))
+		{
+            Debug.Log("Collided!");
+			this.speed = 2;
+		}
+	}
+
 }
