@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 8916858151466012701}
   - component: {fileID: 8916858151466012700}
   - component: {fileID: 8916858151466012679}
+  - component: {fileID: -3819640015997077736}
   m_Layer: 0
-  m_Name: corona3 (1) 1
+  m_Name: CoronaEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  lookRadius: 10
+  lookRadius: 15
 --- !u!50 &3657375900846744657
 Rigidbody2D:
   serializedVersion: 4
@@ -231,3 +232,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyWhenActivated: 0
   healthChange: -1
+--- !u!114 &-3819640015997077736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3137941246898859465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefe5ec316ab07a4696b4ee4d9e3d167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1

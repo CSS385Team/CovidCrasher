@@ -101,7 +101,7 @@ public class Weapon : MonoBehaviour
             if (water.tripleShot)
             {
                 Debug.Log("Triple Shot");
-                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
                 Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 135f))); // slightly upwards
                 Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
 
@@ -110,7 +110,7 @@ public class Weapon : MonoBehaviour
             else
             {
                 Debug.Log("Single Shot");
-                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
             }
         }
 
