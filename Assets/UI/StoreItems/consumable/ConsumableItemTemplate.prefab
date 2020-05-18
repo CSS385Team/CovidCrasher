@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 3279757605160405357}
   - component: {fileID: 3279757605160405356}
   - component: {fileID: 3279757605160405359}
+  - component: {fileID: 7981443728246859439}
   m_Layer: 5
   m_Name: ConsumableItemTemplate
   m_TagString: Untagged
@@ -322,8 +323,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3279757605160405359}
-        m_MethodName: addItemToInventory
+      - m_Target: {fileID: 7981443728246859439}
+        m_MethodName: action
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -340,10 +341,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3279757605160405358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d3d8fd9a2dc66d4f9446ac148afc377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryItemPrefab: {fileID: 2270185250688163526, guid: 48df52cdb3c5ed9469c6739fb97aefc6,
     type: 3}
+--- !u!114 &7981443728246859439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279757605160405358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4919eabc67b733e4cabc7b5c5f56a245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPrefab: {fileID: 0}
