@@ -4364,6 +4364,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 966571766}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &971252171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4907878089215173977, guid: f2cca801134cfc9439abdf61413a56a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376271286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &971252173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4907878089215173975, guid: f2cca801134cfc9439abdf61413a56a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1376271286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971252171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &971252175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971252171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d58f2f9e8f876442b32d79acb31b373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 971252173}
 --- !u!1001 &1028999173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5471,6 +5502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   healthBarAdjust: {fileID: 172068556}
+  shieldBarAdjust: {fileID: 971252175}
 --- !u!1001 &1339584293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5688,6 +5720,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4907878088571992024, guid: f2cca801134cfc9439abdf61413a56a8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4907878088853777748, guid: f2cca801134cfc9439abdf61413a56a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5751,6 +5788,11 @@ PrefabInstance:
     - target: {fileID: 4907878089110480885, guid: f2cca801134cfc9439abdf61413a56a8,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907878089215173975, guid: f2cca801134cfc9439abdf61413a56a8,
+        type: 3}
+      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6360792994771452248, guid: f2cca801134cfc9439abdf61413a56a8,

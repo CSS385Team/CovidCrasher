@@ -12,6 +12,8 @@ public class HealthSystem : MonoBehaviour
     // it's -1 if the object is not a player
     private int playerNumber;
     public HealthBarAdjust healthBarAdjust;
+    public ShieldBarAdjust shieldBarAdjust;
+    private int shield;
 
 
 
@@ -42,6 +44,7 @@ public class HealthSystem : MonoBehaviour
         maxHealth = health; //note down the maximum health to avoid going over it when the player gets healed
         if (playerNumber == 0 || playerNumber == 1)
             healthBarAdjust.SetMaxHealth(maxHealth);
+        shield = 0;
     }
 
 
@@ -49,30 +52,47 @@ public class HealthSystem : MonoBehaviour
     // also notifies the UI (if present)
     public void ModifyHealth(int amount)
     {
-        // Avoid going over the maximum health
-        if (health + amount > maxHealth)
+        if (shield > 0 && amount < 0)
         {
-            amount = maxHealth - health;
+            shield--;
+            shieldBarAdjust.setShield(shield);
         }
+        else
+        {
 
-        health += amount;
 
-        // Notify the UI so it will change the number in the corner
-        // if (ui != null
-        //     && playerNumber != -1)
-        // {
-        //     ui.ChangeHealth(amount, playerNumber);
-        // }
-        if (playerNumber == 0 || playerNumber == 1)
-        {
-            Debug.Log("Player Health modified");
-            healthBarAdjust.SetHealth(health);
+            // Avoid going over the maximum health
+            if (health + amount > maxHealth)
+            {
+                amount = maxHealth - health;
+            }
+
+            health += amount;
+
+
+            // Notify the UI so it will change the number in the corner
+            // if (ui != null
+            //     && playerNumber != -1)
+            // {
+            //     ui.ChangeHealth(amount, playerNumber);
+            // }
+            if (playerNumber == 0 || playerNumber == 1)
+            {
+                Debug.Log("Player Health modified");
+                healthBarAdjust.SetHealth(health);
+            }
+            // Dead
+            if (health <= 0)
+            {
+                /* change from destroy to death sprite */
+                Destroy(gameObject);
+            }
         }
-        // Dead
-        if (health <= 0)
-        {
-            /* change from destroy to death sprite */
-            Destroy(gameObject);
-        }
+    }
+
+    public void setShield(int unit)
+    {
+        shield = unit;
+        shieldBarAdjust.buyShield(unit);
     }
 }
