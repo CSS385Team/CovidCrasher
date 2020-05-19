@@ -35,17 +35,11 @@ public class GameControlScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.P))
-        {
-            Debug.Log(Time.timeScale);
-            Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-        }
-			// display gained number of Points
+        // display gained number of Points
 		strokeText.text = strokesAmount + "";
 		// check if you have enough points to buy particular good
 		// and it is not sold yet
-		//DoYouHaveEnoughStrokesToBuySmth();
-					
+		//DoYouHaveEnoughStrokesToBuySmth();					
 	}
 
 	// Increase points amount by 1 when kitten is clicked
