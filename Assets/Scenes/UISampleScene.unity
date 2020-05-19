@@ -5753,6 +5753,23 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6360792994771452248, guid: f2cca801134cfc9439abdf61413a56a8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a4b672d150fc4e4ead6a1a5a3875ff0,
+        type: 3}
+    - target: {fileID: 6360792994771452251, guid: f2cca801134cfc9439abdf61413a56a8,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360792994771452251, guid: f2cca801134cfc9439abdf61413a56a8,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3759bd09ada4a143bb7f30f91245f8c,
+        type: 3}
     - target: {fileID: 8262076950168184364, guid: f2cca801134cfc9439abdf61413a56a8,
         type: 3}
       propertyPath: m_LocalPosition.z
