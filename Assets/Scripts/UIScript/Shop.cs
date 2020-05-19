@@ -59,10 +59,8 @@ public class Shop : MonoBehaviour
             itemObject.GetComponent<Item>().setItemID(i);
             itemObject.GetComponent<Item>().setPrice(shopItems[i].price);
 
-
-
-            Instantiate(shopItems[i].ImagePrefab, itemObject.transform.GetChild(0));
-          //  itemObject.transform.GetChild(0).GetComponent<Text>().text = shopItems[i].price + "";
+           // Instantiate(shopItems[i].ImagePrefab, itemObject.transform.GetChild(0));
+            itemObject.transform.GetChild(0).GetComponent<Image>().sprite = shopItems[i].assetImage;
             itemObject.transform.GetChild(1).GetComponent<Text>().text = shopItems[i].price + "";
             itemObject.transform.GetChild(2).GetComponent<Text>().text = shopItems[i].itemName;
         }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3685c1135bc55ad419bd901f3a53a487, type: 3}
   m_Name: Bandana
   m_EditorClassIdentifier: 
+  itemTypeID: 2
   itemName: Bandana
   ImagePrefab: {fileID: 8645834609246532746, guid: f4ff94414fed4854194de9efce695e73,
     type: 3}
   price: 30
-  itemTypeID: 2
+  assetImage: {fileID: 21300000, guid: 2762e5ddf17f21a469e394299cfaad49, type: 3}
