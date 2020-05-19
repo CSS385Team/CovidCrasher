@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HealthSystem : MonoBehaviour
 {
-    public int health = 3;
+    public int health = 5;
 
     // private UIScript ui;
     private int maxHealth;
@@ -11,6 +11,7 @@ public class HealthSystem : MonoBehaviour
     // Will be set to 0 or 1 depending on how the GameObject is tagged
     // it's -1 if the object is not a player
     private int playerNumber;
+    public HealthBarAdjust healthBarAdjust;
 
 
 
@@ -24,6 +25,7 @@ public class HealthSystem : MonoBehaviour
         {
             case "Player":
                 playerNumber = 0;
+                
                 break;
             default:
                 playerNumber = -1;
@@ -38,6 +40,8 @@ public class HealthSystem : MonoBehaviour
         // }
 
         maxHealth = health; //note down the maximum health to avoid going over it when the player gets healed
+        if (playerNumber == 0 || playerNumber == 1)
+            healthBarAdjust.SetMaxHealth(maxHealth);
     }
 
 
@@ -59,7 +63,11 @@ public class HealthSystem : MonoBehaviour
         // {
         //     ui.ChangeHealth(amount, playerNumber);
         // }
-
+        if (playerNumber == 0 || playerNumber == 1)
+        {
+            Debug.Log("Player Health modified");
+            healthBarAdjust.SetHealth(health);
+        }
         // Dead
         if (health <= 0)
         {

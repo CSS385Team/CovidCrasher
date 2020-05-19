@@ -17,7 +17,6 @@ public class GameControlScript : MonoBehaviour {
 	// Common variables
 	private bool isSanitizerSold, isIcePackSold;
 	public int sanitizerPrice = 10, icePackPrice = 20;
-    private Inventory inventroy; 
 	// Use this for initialization
 	void Start () {
         // disable all achievements at the beginning

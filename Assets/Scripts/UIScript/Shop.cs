@@ -45,13 +45,22 @@ public class Shop : MonoBehaviour
             if (shopItems[i].itemTypeID == 1)
             {
                 itemObject = Instantiate(consumableItemTemplate, shopContainer);
-                itemObject.GetComponent<AddToInventory>().InventoryItemPrefab = shopItems[i].ImagePrefab;
+                itemObject.GetComponent<Item>().setItemTypeID(1);
+                //  itemObject.GetComponent<AddToInventory>().InventoryItemPrefab = shopItems[i].ImagePrefab;
             }
             else
             {
                 itemObject = Instantiate(equipmentItemTemplate, shopContainer);
-                itemObject.GetComponent<Equipment>().EquipmentItemPrefab = shopItems[i].ImagePrefab;  
+                itemObject.GetComponent<Item>().setItemTypeID(2);
+                //  itemObject.GetComponent<Equipment>().EquipmentItemPrefab = shopItems[i].ImagePrefab;  
             }
+
+            itemObject.GetComponent<Item>().ItemPrefab = shopItems[i].ImagePrefab;
+            itemObject.GetComponent<Item>().setItemID(i);
+            itemObject.GetComponent<Item>().setPrice(shopItems[i].price);
+
+
+
             Instantiate(shopItems[i].ImagePrefab, itemObject.transform.GetChild(0));
           //  itemObject.transform.GetChild(0).GetComponent<Text>().text = shopItems[i].price + "";
             itemObject.transform.GetChild(1).GetComponent<Text>().text = shopItems[i].price + "";
@@ -67,4 +76,5 @@ public class Shop : MonoBehaviour
         newSize.y = ShopContainerGlg.cellSize.y;
         ShopContainerGlg.cellSize = newSize;
     }
+
 }
