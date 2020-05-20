@@ -17,7 +17,6 @@ public class GameControlScript : MonoBehaviour {
 	// Common variables
 	private bool isSanitizerSold, isIcePackSold;
 	public int sanitizerPrice = 10, icePackPrice = 20;
-    private Inventory inventroy; 
 	// Use this for initialization
 	void Start () {
         // disable all achievements at the beginning
@@ -36,12 +35,11 @@ public class GameControlScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-			// display gained number of Points
+        // display gained number of Points
 		strokeText.text = strokesAmount + "";
 		// check if you have enough points to buy particular good
 		// and it is not sold yet
-		//DoYouHaveEnoughStrokesToBuySmth();
-					
+		//DoYouHaveEnoughStrokesToBuySmth();					
 	}
 
 	// Increase points amount by 1 when kitten is clicked
