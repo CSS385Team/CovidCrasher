@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyWhenActivated: 1
   healthChange: -1
+  targetTag: Enemy
 --- !u!58 &8349920876219953534
 CircleCollider2D:
   m_ObjectHideFlags: 0
