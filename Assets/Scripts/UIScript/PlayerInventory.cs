@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerInventory : MonoBehaviour
 {
     //to check if the item is empty at the slot
@@ -28,15 +27,15 @@ public class PlayerInventory : MonoBehaviour
 
     public void consumeSlot1()
     {
-        //Will add itemsAtSlots[0].doSomeAction(); here
         Destroy(itemsAtSlots[0]);
         isFull[0] = false;
     }
 
     public void consumeSlot2()
     {
-        //Will add itemsAtSlots[1].doSomeAction(); here
         Destroy(itemsAtSlots[1]);
         isFull[1] = false;
     }
+
+
 }

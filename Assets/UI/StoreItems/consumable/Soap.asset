@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3685c1135bc55ad419bd901f3a53a487, type: 3}
   m_Name: Soap
   m_EditorClassIdentifier: 
+  itemTypeID: 1
   itemName: Soap
   ImagePrefab: {fileID: 2270185250688163526, guid: 48df52cdb3c5ed9469c6739fb97aefc6,
     type: 3}
   price: 50
-  itemTypeID: 1
+  assetImage: {fileID: 21300000, guid: b1157aae02944ce4db547bfd14f08c0f, type: 3}

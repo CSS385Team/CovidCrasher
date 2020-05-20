@@ -17,3 +17,4 @@ MonoBehaviour:
   ImagePrefab: {fileID: 4351214020544213803, guid: 9de4703e5e233c047873768bd6031075,
     type: 3}
   price: 50
+  assetImage: {fileID: 21300000, guid: 86c91001812fb4c43aa158442f4f5dab, type: 3}
