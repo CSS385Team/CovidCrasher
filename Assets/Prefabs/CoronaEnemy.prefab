@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyWhenActivated: 0
   healthChange: -1
+  targetTag: DoctorPlayer
 --- !u!114 &-3819640015997077736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,3 +246,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  healthBarAdjust: {fileID: 0}
