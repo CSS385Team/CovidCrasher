@@ -13,17 +13,20 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 mv;
     private float tempSpeed;
+    public GameObject gameOverPanel;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
+        
     }
 
     void Update()
     {
         Vector2 mi = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         mv = mi.normalized * speed;
+ 
     }
 
     private void FixedUpdate()
@@ -50,4 +53,9 @@ public class PlayerMovement : MonoBehaviour
         }
 	}
 
+    private void OnBecameInvisible()
+    {
+        Debug.Log("Player Died");
+        gameOverPanel.SetActive(true);
+    }
 }
