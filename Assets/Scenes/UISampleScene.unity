@@ -11534,7 +11534,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 72581195a65f2af48bd3755cda6fe8ea, type: 2}
   - {fileID: 11400000, guid: 22e840775903ff54cb401b144996401c, type: 2}
   shopContainer: {fileID: 6360792994819086992}
-  shoppContainerObjectfromScene: {fileID: 6360792994819086959}
+  shoppContainerObjectfromScene: {fileID: 8262076951106642708}
   equipmentItemTemplate: {fileID: 3755069023905987605, guid: 2235d894e1d099044afbc2e9f56f1457,
     type: 3}
   consumableItemTemplate: {fileID: 3279757605160405358, guid: 7b3570c4424980546b14bb210e3cb8c8,
@@ -12462,7 +12462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 6360792994819086992}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
