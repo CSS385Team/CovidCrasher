@@ -18,3 +18,4 @@ MonoBehaviour:
     type: 3}
   price: 30
   assetImage: {fileID: 21300000, guid: 2762e5ddf17f21a469e394299cfaad49, type: 3}
+  itemDescription: Gain shield by 3 unit
