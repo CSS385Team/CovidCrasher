@@ -114,6 +114,7 @@ public class Item : MonoBehaviour {
         Debug.Log(itemDescription);
         DescriptionTemplate1 = Instantiate(DescriptionTemplate, gameObject.transform.parent.parent.parent.parent);
         DescriptionTemplate1.transform.GetChild(0).GetComponent<Text>().text = itemDescription;
+        Invoke("destroyDes", 2);
     }
 
     public void destroyDes()
