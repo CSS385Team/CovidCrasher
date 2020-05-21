@@ -4,33 +4,32 @@ using UnityEngine;
 
 public class SoapGrenade : MonoBehaviour
 {
-    public float delay = 3f;
+    public double delay = 0.8f;
     public GameObject explosionEffect;
-    public float radius = 10f;
-    float countdown;
+    public float radius = 5f;
     bool hasExploded = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        countdown = delay;
+        GetComponent<Rigidbody2D>().velocity = transform.up * 10f;
+        this.StartCoroutine(DelayAndExplode());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collisionData)
     {
-        countdown -= Time.deltaTime;
-        if (countdown <= 0f && hasExploded == false)
+        if(collisionData.gameObject.tag == "Enemy")
         {
             Explode();
             hasExploded = true;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collisionData)
+    IEnumerator DelayAndExplode()
     {
-        if(collisionData.gameObject.tag == "Enemy")
+        yield return new WaitForSeconds(.8f);
+        if (!hasExploded)
         {
             Explode();
             hasExploded = true;
