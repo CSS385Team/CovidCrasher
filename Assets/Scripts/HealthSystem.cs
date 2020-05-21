@@ -14,6 +14,7 @@ public class HealthSystem : MonoBehaviour
     public HealthBarAdjust healthBarAdjust;
     public ShieldBarAdjust shieldBarAdjust;
     private int shield;
+    public Animator animator;
 
 
 
@@ -84,8 +85,15 @@ public class HealthSystem : MonoBehaviour
             // Dead
             if (health <= 0)
             {
-                /* change from destroy to death sprite */
-                Destroy(gameObject);
+                if (playerNumber == 0 || playerNumber == 1)
+                {
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    /* change from destroy to death sprite */
+                    Destroy(gameObject);
+                }
             }
         }
     }

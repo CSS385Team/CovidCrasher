@@ -10,6 +10,7 @@ public class Item : MonoBehaviour {
     private int itemTypeID;
     private int price;
     public GameObject[] clickerManager;
+    public GameObject youDontHaveEnoughAlert;
 
     private void Start()
     {
@@ -29,6 +30,13 @@ public class Item : MonoBehaviour {
             {
                 addItemToEquipment();
             }
+        } else
+        {
+            Debug.Log("you dont have money");
+            GameObject alret; 
+            alret = Instantiate(youDontHaveEnoughAlert, gameObject.transform, false);
+            Destroy(alret, 1);
+
         }
     }
     

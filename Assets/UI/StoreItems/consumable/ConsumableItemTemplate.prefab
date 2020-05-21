@@ -377,3 +377,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 0}
   clickerManager: []
+  youDontHaveEnoughAlert: {fileID: 2479119870197137988, guid: 67e3ccbf0bee6f3438fb24419787c745,
+    type: 3}
