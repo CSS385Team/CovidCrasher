@@ -14,6 +14,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject equipmentItemTemplate;
     [SerializeField] private GameObject consumableItemTemplate;
     [SerializeField] private GameObject clickerItemTemplate;
+    [SerializeField] private GameObject weaponItemTemplate;
 
     [Header("Responsive UI Shop setting")]
     public RectTransform UIMask; //Store Mask 
@@ -54,8 +55,15 @@ public class Shop : MonoBehaviour
                 itemObject = Instantiate(equipmentItemTemplate, shopContainer);
                 itemObject.GetComponent<Item>().setItemTypeID(2);
                 //  itemObject.GetComponent<Equipment>().EquipmentItemPrefab = shopItems[i].ImagePrefab; 
-                
-            } else
+            }
+            else if (shopItems[i].itemTypeID == 3)
+            {
+                itemObject = Instantiate(weaponItemTemplate, shopContainer);
+                itemObject.GetComponent<Item>().setItemTypeID(3);
+                //  itemObject.GetComponent<Equipment>().EquipmentItemPrefab = shopItems[i].ImagePrefab; 
+
+            }
+            else
             {
                 itemObject = Instantiate(clickerItemTemplate, shopContainer);
                 itemObject.GetComponent<Item>().setItemTypeID(4);

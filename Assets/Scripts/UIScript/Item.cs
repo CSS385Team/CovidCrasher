@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class Item : MonoBehaviour {
+public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     
     public GameObject ItemPrefab;
     public GameObject DescriptionTemplate;
@@ -35,7 +36,12 @@ public class Item : MonoBehaviour {
             else if (itemTypeID == 2)
             {
                 addItemToEquipment();
-            } else
+            }
+            else if (itemTypeID == 3)
+            {
+                addItemToWeapon();
+            }
+            else
             {
                 addItemToClicker();
                 exPrice();
@@ -86,6 +92,13 @@ public class Item : MonoBehaviour {
         }
         equipment.Equiped = Instantiate(ItemPrefab, equipment.EquipmentSlot.transform, false);
         Debug.Log("newPrefav");
+    }
+
+    public void addItemToWeapon()
+    {
+        PlayerEquipment weapon;
+        weapon = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerEquipment>();
+        weapon.addtoGunCollection(ItemPrefab);
     }
 
     public void addItemToClicker()
@@ -140,6 +153,18 @@ public class Item : MonoBehaviour {
     public void destroyDes()
     {
         Destroy(DescriptionTemplate1);
+    }
+
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+
+        displayDes();
+    }
+
+    //Detect when Cursor leaves the GameObject
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        destroyDes();
     }
 
 }
