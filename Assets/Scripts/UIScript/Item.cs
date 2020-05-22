@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class Item : MonoBehaviour {
+public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     
     public GameObject ItemPrefab;
     public GameObject DescriptionTemplate;
@@ -32,9 +33,18 @@ public class Item : MonoBehaviour {
             {
                 addItemToInventory();
             }
-            else
+            else if (itemTypeID == 2)
             {
                 addItemToEquipment();
+            }
+            else if (itemTypeID == 3)
+            {
+                addItemToWeapon();
+            }
+            else
+            {
+                addItemToClicker();
+                exPrice();
             }
         } else
         {
@@ -84,6 +94,22 @@ public class Item : MonoBehaviour {
         Debug.Log("newPrefav");
     }
 
+    public void addItemToWeapon()
+    {
+        PlayerEquipment weapon;
+        weapon = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerEquipment>();
+        weapon.addtoGunCollection(ItemPrefab);
+    }
+
+    public void addItemToClicker()
+    {
+        GameControlScript clickerManager;
+        clickerManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlScript>();
+        Instantiate(ItemPrefab, clickerManager.Clicker.transform, false);
+        // equipment.Equiped = Instantiate(ItemPrefab, equipment.EquipmentSlot.transform, false);
+        Debug.Log("newPrefav");
+    }
+
     public void setImagePrefab(GameObject imagePrefab)
     {
         ItemPrefab = imagePrefab;
@@ -104,6 +130,13 @@ public class Item : MonoBehaviour {
         this.price = price;
     }
 
+    public void exPrice()
+    {
+        float a = price * 1.25f;
+        price = (int) a;
+        transform.GetChild(1).GetComponent<Text>().text = price + "";
+    }
+
     public void setDescription(string des)
     {
         this.itemDescription = des;
@@ -120,6 +153,18 @@ public class Item : MonoBehaviour {
     public void destroyDes()
     {
         Destroy(DescriptionTemplate1);
+    }
+
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+
+        displayDes();
+    }
+
+    //Detect when Cursor leaves the GameObject
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        destroyDes();
     }
 
 }

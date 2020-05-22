@@ -85,13 +85,19 @@ public class Weapon : MonoBehaviour
     }
 
     // this method handles instantiating the water gun bullets
+
+    public void equipTripleShot()
+    {
+        water.tripleShot = true;
+    }
+
+    public void equipSingleShot()
+    {
+        water.tripleShot = false;
+    }
+
     void blasterWeapon(float angle)
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Activated!");
-            water.tripleShot = !water.tripleShot;
-        }
 
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {
