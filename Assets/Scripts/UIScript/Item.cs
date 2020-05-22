@@ -32,9 +32,13 @@ public class Item : MonoBehaviour {
             {
                 addItemToInventory();
             }
-            else
+            else if (itemTypeID == 2)
             {
                 addItemToEquipment();
+            } else
+            {
+                addItemToClicker();
+                exPrice();
             }
         } else
         {
@@ -84,6 +88,15 @@ public class Item : MonoBehaviour {
         Debug.Log("newPrefav");
     }
 
+    public void addItemToClicker()
+    {
+        GameControlScript clickerManager;
+        clickerManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControlScript>();
+        Instantiate(ItemPrefab, clickerManager.Clicker.transform, false);
+        // equipment.Equiped = Instantiate(ItemPrefab, equipment.EquipmentSlot.transform, false);
+        Debug.Log("newPrefav");
+    }
+
     public void setImagePrefab(GameObject imagePrefab)
     {
         ItemPrefab = imagePrefab;
@@ -102,6 +115,13 @@ public class Item : MonoBehaviour {
     public void setPrice(int price)
     {
         this.price = price;
+    }
+
+    public void exPrice()
+    {
+        float a = price * 1.25f;
+        price = (int) a;
+        transform.GetChild(1).GetComponent<Text>().text = price + "";
     }
 
     public void setDescription(string des)
