@@ -85,13 +85,19 @@ public class Weapon : MonoBehaviour
     }
 
     // this method handles instantiating the water gun bullets
+
+    public void equipTripleShot()
+    {
+        water.tripleShot = true;
+    }
+
+    public void equipSingleShot()
+    {
+        water.tripleShot = false;
+    }
+
     void blasterWeapon(float angle)
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Activated!");
-            water.tripleShot = !water.tripleShot;
-        }
 
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {
@@ -101,16 +107,16 @@ public class Weapon : MonoBehaviour
             if (water.tripleShot)
             {
                 Debug.Log("Triple Shot");
-                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
-                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 135f))); // slightly upwards
-                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 135f))); // slightly upwards
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
 
             }
             // do a single shot
             else
             {
                 Debug.Log("Single Shot");
-                Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
             }
         }
 
