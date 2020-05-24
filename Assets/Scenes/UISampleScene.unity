@@ -13036,6 +13036,7 @@ GameObject:
   - component: {fileID: 6360792995543743215}
   - component: {fileID: 6360792995543743214}
   - component: {fileID: 6360792995543743213}
+  - component: {fileID: 6360792995543743216}
   m_Layer: 5
   m_Name: Clicker
   m_TagString: Untagged
@@ -13154,6 +13155,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6360792995543743211}
   m_CullTransparentMesh: 0
+--- !u!114 &6360792995543743216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360792995543743211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b753b3528be58e54ba59e2f4990089d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6360792995825585226
 GameObject:
   m_ObjectHideFlags: 0
@@ -13758,6 +13771,7 @@ GameObject:
   - component: {fileID: 8262076951106642706}
   - component: {fileID: 8262076951106642711}
   - component: {fileID: 8262076951106642710}
+  - component: {fileID: 8262076951106642712}
   m_Layer: 5
   m_Name: Mask
   m_TagString: Untagged
@@ -13825,6 +13839,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8262076951106642712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262076951106642708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b753b3528be58e54ba59e2f4990089d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8498447744321517506
