@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8349920876219953534}
   - component: {fileID: 9170377043053037567}
   - component: {fileID: -850634716369266529}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Water Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1917795429
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0bb6cdb2d78a2764eac6ace27a19284f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
