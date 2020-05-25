@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 97dc6b1b315312540b39ab00241eaa01
+=======
 guid: ba20794beb3c2e84ab87c83d781e719e
+>>>>>>> Staging
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

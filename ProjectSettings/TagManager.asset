@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Mucus
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -13,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Doctor
+  - Enemy
+  - Obstacle
   - 
   - 
   - 
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Back
+    uniqueID: 3781405215
+    locked: 0
+  - name: Doctor
+    uniqueID: 2377171867
+    locked: 0
+  - name: Enemy
+    uniqueID: 3565839173
+    locked: 0
+  - name: background
+    uniqueID: 241429313
     locked: 0

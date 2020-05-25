@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -10,22 +11,52 @@ public class EnemyMovement : MonoBehaviour
     and stops as soon as the key is let go.*/
     
 	public float speed;
+    public float lookRadius = 10f;
+
     private Rigidbody2D rb;
     private Vector2 mv;
+    private float tempSpeed;
+    private AIPath aiPath;
+    private Transform player;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tempSpeed = speed;
+        aiPath = GetComponent<AIPath>();
+        aiPath.canMove = false;
+        aiPath.canSearch = false;
+        player = GetComponent<AIDestinationSetter>().target;
     }
 
     void Update()
     {
-        Vector2 mi = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        mv = mi.normalized * speed;
+        aiPath.maxSpeed = speed;
+        // if enemy is at x distance from player, then start searching/following
+        var distance = Vector3.Distance(transform.position, player.position);
+        if (distance < lookRadius)
+        {
+            aiPath.canMove = true;
+            aiPath.canSearch = true;
+        }
     }
+    
+    // Gabe: Funtion inspired by Playground Challenge Code "ConditionArea"
+    void OnTriggerStay2D(Collider2D otherCollider)
+	{
+		if(otherCollider.CompareTag("Mucus"))
+		{
+            Debug.Log("Collided!");
+			this.speed = 2;
+		}
+	}
 
-    private void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + mv * Time.fixedDeltaTime);
-    }
+    private void OnTriggerExit2D(Collider2D otherCollider)
+	{
+		if(otherCollider.CompareTag("Mucus"))
+		{
+			this.speed = tempSpeed;
+        }
+	}
+
 }

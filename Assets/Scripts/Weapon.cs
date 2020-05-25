@@ -14,6 +14,9 @@ public class Weapon : MonoBehaviour
     public Transform pos;
     public GameObject projectile;
     private float timeSpawn = 0f;
+    public WaterBlaster water;
+    private bool dontShoot = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,10 +58,19 @@ public class Weapon : MonoBehaviour
            case WaterBlaster.:
                blasterWeapon();
        }*/
-
-        blasterWeapon(angle);
+        if (dontShoot == false)
+            blasterWeapon(angle);
     }
 
+    public void allowShoot()
+    {
+        dontShoot = false;
+    }
+
+    public void blockShoot()
+    {
+        dontShoot = true;
+    }
 
     // https://answers.unity.com/questions/855976/make-a-player-model-rotate-towards-mouse-location.html
     // this method that calculates the angle between two vectors was found from the source above
@@ -76,22 +88,46 @@ public class Weapon : MonoBehaviour
      */
     void throwWeapon()
     {
-        // not sure what the parameter 'int button' is supposed to do for GetMouseButtonDown(int button)
         if(Input.GetMouseButtonDown(0))
         {
             Instantiate(projectile, pos.position, pos.rotation );
         }
     }
 
+    // this method handles instantiating the water gun bullets
+
+    public void equipTripleShot()
+    {
+        water.tripleShot = true;
+    }
+
+    public void equipSingleShot()
+    {
+        water.tripleShot = false;
+    }
+
     void blasterWeapon(float angle)
     {
-        // not sure what the parameter 'int button' is supposed to do for GetMouseButton(int button)
+
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {
             timeSpawn = Time.time;
-            Instantiate(projectile, pos.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
-            //Quaternion aim = Quaternion.Euler(pos.rotation.x, pos.rotation.y, pos.rotation.z + 10f);
-            //projectile.transform.rotation = aim;
+            
+            // activate triple shot upgrade
+            if (water.tripleShot)
+            {
+                Debug.Log("Triple Shot");
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 135f))); // slightly upwards
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
+
+            }
+            // do a single shot
+            else
+            {
+                Debug.Log("Single Shot");
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f)));
+            }
         }
 
     }
