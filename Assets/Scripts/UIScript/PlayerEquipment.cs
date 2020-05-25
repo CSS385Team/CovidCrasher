@@ -53,7 +53,7 @@ public class PlayerEquipment : MonoBehaviour
         Debug.Log("GunIndex: " + gunIndex + "Gunsize:" + gunSize);
         Destroy(PlayerWeapon);
         PlayerWeapon = Instantiate(GunCollection[gunIndex], WeaponSlot.transform, false);
-        WeaponSlot.transform.GetChild(2).GetComponent<Text>().text = "Weapon " + gunIndex;
+        WeaponSlot.transform.GetChild(2).GetComponent<Text>().text = "Weapon " + (gunIndex+1);
 
 
     }
