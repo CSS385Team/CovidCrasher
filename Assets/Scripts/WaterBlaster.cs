@@ -31,9 +31,4 @@ public class WaterBlaster : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        Destroy(gameObject);
-    }
 }
