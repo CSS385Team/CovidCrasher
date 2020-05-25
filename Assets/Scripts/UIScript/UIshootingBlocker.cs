@@ -21,4 +21,11 @@ public class UIshootingBlocker : MonoBehaviour,IPointerEnterHandler, IPointerExi
     {
         weaponScript.allowShoot();
     }
+
+    public void OnDisable()
+    {
+        if (weaponScript != null)
+        weaponScript.allowShoot();
+    }
+    
 }
