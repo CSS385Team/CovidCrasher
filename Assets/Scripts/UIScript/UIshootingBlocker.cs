@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIshootingBlocker : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler {
+public class UIshootingBlocker : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler{
     private Weapon weaponScript;
 
     private void Start()
@@ -20,6 +20,11 @@ public class UIshootingBlocker : MonoBehaviour,IPointerEnterHandler, IPointerExi
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         weaponScript.allowShoot();
+    }
+
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        weaponScript.blockShoot();
     }
 
     public void OnDisable()
