@@ -248,4 +248,3 @@ MonoBehaviour:
   health: 1
   healthBarAdjust: {fileID: 0}
   shieldBarAdjust: {fileID: 0}
-  animator: {fileID: 0}
