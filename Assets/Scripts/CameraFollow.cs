@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
-    public Transform target; // attach to Doctor
+    private Transform target; // attach to Doctor
 
     public float smoothSpeed = 0.125f;
     public Vector3 offset; // set z axis to around -3
 
     private void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         offset = new Vector3(0f, 0f, -3f);
     }
 
