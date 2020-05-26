@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 187945084}
   - component: {fileID: 187945083}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Level Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,8 +257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000012159, y: -75}
-  m_SizeDelta: {x: 313.1654, y: 70.63977}
+  m_AnchoredPosition: {x: -0.000022888, y: -75}
+  m_SizeDelta: {x: 492.12183, y: 70.63977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187945083
 MonoBehaviour:
@@ -523,8 +523,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000038147155, y: 0}
-  m_SizeDelta: {x: 323.7447, y: 110.8616}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 538.74115, y: 110.8616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631085455
 MonoBehaviour:
@@ -558,7 +558,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: Level Select
 --- !u!222 &631085456
 CanvasRenderer:
   m_ObjectHideFlags: 0
