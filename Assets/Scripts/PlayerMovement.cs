@@ -56,6 +56,12 @@ public class PlayerMovement : MonoBehaviour
         }
 	}
 
+    //private void OnDestroy()
+    //{
+    //    Debug.Log("Player Died");
+    //    gameOverPanel.SetActive(true);
+    //}
+
     private void OnDisable()
     {
         Debug.Log("Player Died");
