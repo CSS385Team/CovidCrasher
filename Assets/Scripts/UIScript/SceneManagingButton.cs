@@ -8,5 +8,6 @@ public class SceneManagingButton : MonoBehaviour
     public void reloadCurrentScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Destroy(GameObject.Find("UI"));
     }
 }
