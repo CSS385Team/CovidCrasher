@@ -9,8 +9,8 @@ public class EnemyMovement : MonoBehaviour
     /* Functional with WASD and arrow keys.
     Player character moves constantly at top speed,
     and stops as soon as the key is let go.*/
-    
-	public float speed;
+
+    public float speed;
     public float lookRadius = 10f;
 
     private Rigidbody2D rb;
@@ -34,6 +34,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+            return;
         aiPath.maxSpeed = speed;
         // if enemy is at x distance from player, then start searching/following
         var distance = Vector3.Distance(transform.position, player.position);
@@ -43,23 +45,23 @@ public class EnemyMovement : MonoBehaviour
             aiPath.canSearch = true;
         }
     }
-    
+
     // Gabe: Funtion inspired by Playground Challenge Code "ConditionArea"
     void OnTriggerStay2D(Collider2D otherCollider)
-	{
-		if(otherCollider.CompareTag("Mucus"))
-		{
+    {
+        if (otherCollider.CompareTag("Mucus"))
+        {
             Debug.Log("Collided!");
-			this.speed = 2;
-		}
-	}
+            this.speed = 2;
+        }
+    }
 
     private void OnTriggerExit2D(Collider2D otherCollider)
-	{
-		if(otherCollider.CompareTag("Mucus"))
-		{
-			this.speed = tempSpeed;
+    {
+        if (otherCollider.CompareTag("Mucus"))
+        {
+            this.speed = tempSpeed;
         }
-	}
+    }
 
 }

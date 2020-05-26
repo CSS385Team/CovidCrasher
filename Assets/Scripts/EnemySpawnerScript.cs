@@ -21,6 +21,9 @@ public class EnemySpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+            return;
+
         var distance = Vector3.Distance(transform.position, player.position);
         if (distance < lookRadius)
         {
