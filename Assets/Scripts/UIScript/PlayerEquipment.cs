@@ -41,7 +41,7 @@ public class PlayerEquipment : MonoBehaviour
     {
         gunSize++;
         GunCollection[gunSize] = gun;
-        
+        changeGun();
     }
 
     //call when Z is pressed 
