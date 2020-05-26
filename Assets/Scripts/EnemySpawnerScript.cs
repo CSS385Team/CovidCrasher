@@ -28,8 +28,7 @@ public class EnemySpawnerScript : MonoBehaviour
             {
                 nextSpawn = Time.time + spawnRate;
                 whereToSpawn = new Vector2(transform.position.x, transform.position.y);
-                var enemy = Instantiate(enemyPrefab, whereToSpawn, Quaternion.identity);
-                enemy.GetComponent<AIDestinationSetter>().target = player;
+                Instantiate(enemyPrefab, whereToSpawn, Quaternion.identity);
             }
         }   
     }

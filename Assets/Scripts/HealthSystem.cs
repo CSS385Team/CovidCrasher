@@ -87,8 +87,8 @@ public class HealthSystem : MonoBehaviour
                 {
                     if (playerNumber == 0 || playerNumber == 1)
                     {
-                        //gameObject.SetActive(false);
-                        Destroy(gameObject);
+                        gameObject.SetActive(false);
+                        //Destroy(gameObject);
                     }
                     else
                     {

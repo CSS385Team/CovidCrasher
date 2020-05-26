@@ -26,7 +26,10 @@ public class EnemyMovement : MonoBehaviour
         aiPath = GetComponent<AIPath>();
         aiPath.canMove = false;
         aiPath.canSearch = false;
-        player = GetComponent<AIDestinationSetter>().target;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        // set the player as the target for pathfinding
+        GetComponent<AIDestinationSetter>().target = player;
     }
 
     void Update()
