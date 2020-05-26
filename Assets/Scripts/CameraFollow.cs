@@ -6,6 +6,11 @@ public class CameraFollow : MonoBehaviour {
     public float smoothSpeed = 0.125f;
     public Vector3 offset; // set z axis to around -3
 
+    private void Start()
+    {
+        offset = new Vector3(0f, 0f, -3f);
+    }
+
     private void FixedUpdate()
     {
         Vector3 moveToPlayer = target.position + offset;
