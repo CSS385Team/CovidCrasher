@@ -11,8 +11,8 @@ public class HealthSystem : MonoBehaviour
     // Will be set to 0 or 1 depending on how the GameObject is tagged
     // it's -1 if the object is not a player
     private int playerNumber;
-    public HealthBarAdjust healthBarAdjust;
-    public ShieldBarAdjust shieldBarAdjust;
+    private HealthBarAdjust healthBarAdjust;
+    private ShieldBarAdjust shieldBarAdjust;
     private int shield;
 
 
@@ -36,8 +36,12 @@ public class HealthSystem : MonoBehaviour
                 playerNumber = -1;
                 break;
         }
-
-        // Notify the UI so it will show the right initial amount
+        if (playerNumber == 0 || playerNumber == 1)
+        {
+            healthBarAdjust = GameObject.Find("healthBarContainer").GetComponent<HealthBarAdjust>();
+            shieldBarAdjust = GameObject.Find("shieldContainer").GetComponent<ShieldBarAdjust>();
+        }
+            // Notify the UI so it will show the right initial amount
         // if (ui != null
         //     && playerNumber != -1)
         // {
@@ -48,7 +52,10 @@ public class HealthSystem : MonoBehaviour
         if (playerNumber == 0 || playerNumber == 1)
             healthBarAdjust.SetMaxHealth(maxHealth);
         shield = 0;
-    }
+
+
+       
+}
 
 
     // changes the energy from the player
