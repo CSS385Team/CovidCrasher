@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public Dialogue IntroDialogue;
+    public GameObject DialogueBox;
+
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        DialogueBox.SetActive(true);
+        gameObject.transform.GetChild(2).gameObject.SetActive(false);
+
+        DialogueBox.GetComponent<DialogueManager>().StartDialogue(IntroDialogue);
     }
 
     public void QuitGame()
