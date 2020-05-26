@@ -59,7 +59,9 @@ public class Weapon : MonoBehaviour
                blasterWeapon();
        }*/
         if (dontShoot == false)
+        {
             blasterWeapon(angle);
+        }
     }
 
     public void allowShoot()
