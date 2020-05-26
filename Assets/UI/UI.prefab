@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6615669894175990269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1050,9 +1050,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strokeText: {fileID: 8262076949444280536}
+  perSecDisplay: {fileID: 0}
   strokesAmount: 0
-  sanitizerPrice: 10
-  icePackPrice: 20
+  Clicker: {fileID: 0}
 --- !u!114 &6360792994636624088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,9 +1082,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417a51b3ab1cb4249afa8a04adbd477e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Equiped: {fileID: 0}
-  Weapon: {fileID: 0}
+  WeaponSlot: {fileID: 0}
   EquipmentSlot: {fileID: 6360792994699017223}
+  Equiped: {fileID: 0}
+  PlayerWeapon: {fileID: 0}
+  defaultWeaponPrefab: {fileID: 0}
 --- !u!114 &6360792994636624089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,6 +1110,8 @@ MonoBehaviour:
     type: 3}
   consumableItemTemplate: {fileID: 3279757605160405358, guid: 7b3570c4424980546b14bb210e3cb8c8,
     type: 3}
+  clickerItemTemplate: {fileID: 0}
+  weaponItemTemplate: {fileID: 0}
   UIMask: {fileID: 8262076949798541475}
   ShopContainerGlg: {fileID: 6360792996194296279}
 --- !u!1 &6360792994699017223

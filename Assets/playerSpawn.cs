@@ -12,8 +12,14 @@ public class playerSpawn : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject UIPrefab;
 
-    void Start()
+    void Awake()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        UIObject = GameObject.FindGameObjectWithTag("UI");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        UIObject = GameObject.FindGameObjectWithTag("UI");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        UIObject = GameObject.FindGameObjectWithTag("UI");
         playerObject = GameObject.FindGameObjectWithTag("Player");
         UIObject = GameObject.FindGameObjectWithTag("UI");
         if (playerObject == null)

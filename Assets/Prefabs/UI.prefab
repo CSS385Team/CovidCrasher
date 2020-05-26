@@ -1264,7 +1264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecb0ad33c8fa84458769c77435b91e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseScreen: {fileID: 0}
   waterBlaster: {fileID: 0}
 --- !u!1 &2610594776804617405
 GameObject:
@@ -2222,7 +2221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecb0ad33c8fa84458769c77435b91e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseScreen: {fileID: 2610594776677529624}
   waterBlaster: {fileID: 0}
 --- !u!1 &6238181647933862537
 GameObject:
@@ -2759,7 +2757,7 @@ GameObject:
   - component: {fileID: 6928501054541088638}
   m_Layer: 0
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

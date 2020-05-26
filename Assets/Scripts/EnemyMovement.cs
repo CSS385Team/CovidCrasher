@@ -18,15 +18,17 @@ public class EnemyMovement : MonoBehaviour
     private float tempSpeed;
     private AIPath aiPath;
     private Transform player;
+    
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
         aiPath = GetComponent<AIPath>();
         aiPath.canMove = false;
         aiPath.canSearch = false;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        
 
         // set the player as the target for pathfinding
         GetComponent<AIDestinationSetter>().target = player;
@@ -34,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         aiPath.maxSpeed = speed;
         // if enemy is at x distance from player, then start searching/following
         var distance = Vector3.Distance(transform.position, player.position);
