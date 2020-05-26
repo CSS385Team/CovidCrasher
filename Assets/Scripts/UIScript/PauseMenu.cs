@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = true;
 
     public GameObject pauseScreen;
+    public Weapon waterBlaster;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     void Resume()
     {
         pauseScreen.SetActive(false);
+        waterBlaster.allowShoot();
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
@@ -40,6 +42,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseScreen.SetActive(true);
+        waterBlaster.blockShoot();
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
