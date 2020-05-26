@@ -10,7 +10,7 @@ public class ToggleInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SwitchShowHide();
+        SwitchShowHide();
     }
 
     public void SwitchShowHide()

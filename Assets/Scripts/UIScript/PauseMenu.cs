@@ -6,34 +6,39 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = true;
 
-    public GameObject pauseScreen;
+    //public GameObject pauseScreen;
     public Weapon waterBlaster;
 
-    private void Start()
+    private void Awake()
     {
-        Pause();
+        waterBlaster = GameObject.Find("Projectile").GetComponent<Weapon>();
+        //Pause();
+
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            if(gameIsPaused == true)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.H))
+    //    {
+    //        if(gameIsPaused == true)
+    //        {
+    //            Resume();
+    //        }
+    //        else
+    //        {
+    //            Pause();
+    //        }
+    //    }
+    //}
 
     void Resume()
     {
-        pauseScreen.SetActive(false);
+        //pauseScreen.SetActive(false);
+        //waterBlaster.allowShoot();
+        //Time.timeScale = 1f;
+        //gameIsPaused = false;
         waterBlaster.allowShoot();
         Time.timeScale = 1f;
         gameIsPaused = false;
@@ -41,9 +46,23 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
-        pauseScreen.SetActive(true);
+        //pauseScreen.SetActive(true);
+        //waterBlaster.blockShoot();
+        //Time.timeScale = 0f;
+        //gameIsPaused = true;
         waterBlaster.blockShoot();
         Time.timeScale = 0f;
         gameIsPaused = true;
+    }
+
+    private void OnEnable()
+    {
+        Pause();
+    }
+
+    private void OnDisable()
+    {
+        
+        Resume();
     }
 }

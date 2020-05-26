@@ -6,13 +6,22 @@ public class playerSpawn : MonoBehaviour
 {
     // Start is called before the first frame update
    
-    GameObject gameObjectToMove;
+    GameObject playerObject;
+    GameObject UIObject;
     private Transform player;
+    public GameObject playerPrefab;
+    public GameObject UIPrefab;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        UIObject = GameObject.FindGameObjectWithTag("UI");
+        if (playerObject == null)
+            playerObject = Instantiate(playerPrefab);
+        player = playerObject.transform; 
         player.position = gameObject.transform.position;
+        if (UIObject == null)
+            Instantiate(UIPrefab);
     }
 
    

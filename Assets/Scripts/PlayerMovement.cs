@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
-        
+        gameOverPanel = GameObject.Find("YouDiedPanel");
+        gameOverPanel.SetActive(false);
+
+
     }
 
     void Update()
