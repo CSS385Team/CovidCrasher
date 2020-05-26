@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
 	}
 
-    private void OnBecameInvisible()
+    private void OnDestroy()
     {
         Debug.Log("Player Died");
         gameOverPanel.SetActive(true);
