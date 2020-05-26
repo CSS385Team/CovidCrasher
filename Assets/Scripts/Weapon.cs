@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     private float timeSpawn = 0f;
     public WaterBlaster water;
+    private bool dontShoot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,10 +58,19 @@ public class Weapon : MonoBehaviour
            case WaterBlaster.:
                blasterWeapon();
        }*/
-
-        blasterWeapon(angle);
+        if (dontShoot == false)
+            blasterWeapon(angle);
     }
 
+    public void allowShoot()
+    {
+        dontShoot = false;
+    }
+
+    public void blockShoot()
+    {
+        dontShoot = true;
+    }
 
     // https://answers.unity.com/questions/855976/make-a-player-model-rotate-towards-mouse-location.html
     // this method that calculates the angle between two vectors was found from the source above
@@ -85,13 +95,19 @@ public class Weapon : MonoBehaviour
     }
 
     // this method handles instantiating the water gun bullets
+
+    public void equipTripleShot()
+    {
+        water.tripleShot = true;
+    }
+
+    public void equipSingleShot()
+    {
+        water.tripleShot = false;
+    }
+
     void blasterWeapon(float angle)
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Activated!");
-            water.tripleShot = !water.tripleShot;
-        }
 
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {

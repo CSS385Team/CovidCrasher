@@ -13,6 +13,7 @@ public class ShopItem : ScriptableObject
     public GameObject ImagePrefab;
     public int price;
     public Sprite assetImage;
+    public string itemDescription;
 
     //1: consumable 2: Equipment 3: Weapon Upgrade 4: Clicker Upgrade
 

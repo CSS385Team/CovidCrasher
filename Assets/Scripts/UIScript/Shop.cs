@@ -13,6 +13,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject shoppContainerObjectfromScene;
     [SerializeField] private GameObject equipmentItemTemplate;
     [SerializeField] private GameObject consumableItemTemplate;
+    [SerializeField] private GameObject clickerItemTemplate;
+    [SerializeField] private GameObject weaponItemTemplate;
 
     [Header("Responsive UI Shop setting")]
     public RectTransform UIMask; //Store Mask 
@@ -48,18 +50,30 @@ public class Shop : MonoBehaviour
                 itemObject.GetComponent<Item>().setItemTypeID(1);
                 //  itemObject.GetComponent<AddToInventory>().InventoryItemPrefab = shopItems[i].ImagePrefab;
             }
-            else
+            else if (shopItems[i].itemTypeID == 2)
             {
                 itemObject = Instantiate(equipmentItemTemplate, shopContainer);
                 itemObject.GetComponent<Item>().setItemTypeID(2);
-                //  itemObject.GetComponent<Equipment>().EquipmentItemPrefab = shopItems[i].ImagePrefab;  
+                //  itemObject.GetComponent<Equipment>().EquipmentItemPrefab = shopItems[i].ImagePrefab; 
+            }
+            else if (shopItems[i].itemTypeID == 3)
+            {
+                itemObject = Instantiate(weaponItemTemplate, shopContainer);
+                itemObject.GetComponent<Item>().setItemTypeID(3);
+                //  itemObject.GetComponent<Equipment>().EquipmentItemPrefab = shopItems[i].ImagePrefab; 
+
+            }
+            else
+            {
+                itemObject = Instantiate(clickerItemTemplate, shopContainer);
+                itemObject.GetComponent<Item>().setItemTypeID(4);
             }
 
             itemObject.GetComponent<Item>().ItemPrefab = shopItems[i].ImagePrefab;
             itemObject.GetComponent<Item>().setItemID(i);
             itemObject.GetComponent<Item>().setPrice(shopItems[i].price);
-
-           // Instantiate(shopItems[i].ImagePrefab, itemObject.transform.GetChild(0));
+            itemObject.GetComponent<Item>().setDescription(shopItems[i].itemDescription);
+            
             itemObject.transform.GetChild(0).GetComponent<Image>().sprite = shopItems[i].assetImage;
             itemObject.transform.GetChild(1).GetComponent<Text>().text = shopItems[i].price + "";
             itemObject.transform.GetChild(2).GetComponent<Text>().text = shopItems[i].itemName;

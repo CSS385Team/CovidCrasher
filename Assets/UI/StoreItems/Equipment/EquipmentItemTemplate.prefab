@@ -299,7 +299,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemPrefab: {fileID: 8645834609246532746, guid: f4ff94414fed4854194de9efce695e73,
     type: 3}
+  DescriptionTemplate: {fileID: 2660317183073533656, guid: 63a2d0f84e25a824b8c6c08cc6907a52,
+    type: 3}
   clickerManager: []
+  youDontHaveEnoughAlert: {fileID: 2479119870197137988, guid: 67e3ccbf0bee6f3438fb24419787c745,
+    type: 3}
 --- !u!1 &3755069024495885353
 GameObject:
   m_ObjectHideFlags: 0
