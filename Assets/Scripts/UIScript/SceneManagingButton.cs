@@ -7,16 +7,17 @@ public class SceneManagingButton : MonoBehaviour
 {
     public void reloadCurrentScene()
     {
+        
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        Destroy(GameObject.FindGameObjectWithTag("UI"));
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Destroy(GameObject.Find("DoctorPlayer"));
-        Destroy(GameObject.Find("UI"));
 
     }
 
     public void goBackToMenu()
     {
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        Destroy(GameObject.FindGameObjectWithTag("UI"));
         SceneManager.LoadScene(0);
-        Destroy(GameObject.Find("DoctorPlayer"));
-        Destroy(GameObject.Find("UI"));
     }
 }

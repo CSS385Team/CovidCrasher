@@ -158,13 +158,13 @@ namespace Pathfinding {
 		public Transform target {
 			get {
 				var setter = GetComponent<AIDestinationSetter>();
-				return setter != null ? setter.target : null;
+				return setter != null ? setter.returnTarget() : null;
 			}
 			set {
 				targetCompatibility = null;
 				var setter = GetComponent<AIDestinationSetter>();
 				if (setter == null) setter = gameObject.AddComponent<AIDestinationSetter>();
-				setter.target = value;
+				setter.setTarget(value);
 				destination = value != null ? value.position : new Vector3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
 			}
 		}
