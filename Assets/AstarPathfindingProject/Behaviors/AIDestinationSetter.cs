@@ -15,12 +15,22 @@ namespace Pathfinding {
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_a_i_destination_setter.php")]
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
-		public Transform target;
+		private Transform target;
 		IAstarAI ai;
 
         private void Start()
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+        public Transform returnTarget()
+        {
+            return target;
+        }
+
+        public void setTarget(Transform a)
+        {
+            target = a;
         }
 
         void OnEnable () {

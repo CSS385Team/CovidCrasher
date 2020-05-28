@@ -24,11 +24,25 @@ public class playerSpawn : MonoBehaviour
         UIObject = GameObject.FindGameObjectWithTag("UI");
         if (playerObject == null)
             playerObject = Instantiate(playerPrefab);
+        else
+            Debug.Log("Player exist");
         player = playerObject.transform; 
         player.position = gameObject.transform.position;
         if (UIObject == null)
-            Instantiate(UIPrefab);
+            UIObject = Instantiate(UIPrefab);
+        else
+            Debug.Log("UI exist");
     }
 
-   
+    public GameObject getPlayer()
+    {
+        return playerObject;
+    }
+
+    public GameObject getUIr()
+    {
+        return UIObject;
+    }
+
+
 }

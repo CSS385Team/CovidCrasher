@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d926fec57fb4c411a912d607e2822370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   gameOverPanel: {fileID: 0}
 --- !u!60 &1928935060683569117
 PolygonCollider2D:
