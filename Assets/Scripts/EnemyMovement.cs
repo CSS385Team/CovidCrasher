@@ -35,7 +35,14 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (player == null)
-            return;
+        {
+            player = GameObject.FindGameObjectWithTag("Player")?.transform;
+            if(player == null)
+                return;
+            // set the player as the target for pathfinding
+            GetComponent<AIDestinationSetter>().target = player;
+        }
+
         aiPath.maxSpeed = speed;
         // if enemy is at x distance from player, then start searching/following
         var distance = Vector3.Distance(transform.position, player.position);
