@@ -31,8 +31,7 @@ public class EnemyMovement : MonoBehaviour
         
 
         // set the player as the target for pathfinding
-        //GetComponent<AIDestinationSetter>().target = player;
-        GetComponent<AIDestinationSetter>().setTarget(player);
+        GetComponent<AIDestinationSetter>().target = player;
     }
 
     void Update()
