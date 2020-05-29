@@ -6,16 +6,28 @@ using Pathfinding;
 public class EnemySpawnerScript : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject playerSpawner;
     Vector2 whereToSpawn;
     public float spawnRate = 2f;
     float nextSpawn = 0.0f;
     float lookRadius = 20f;
-    private Transform player;
+    private GameObject player;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        //Delay until sucessfully initiate
+        Invoke("find", 0.1f);
+    }
+
+    void find()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            player = playerSpawner.GetComponent<playerSpawn>().getPlayer();
+        }
     }
 
     // Update is called once per frame

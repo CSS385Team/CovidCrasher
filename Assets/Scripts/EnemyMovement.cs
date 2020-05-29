@@ -18,15 +18,17 @@ public class EnemyMovement : MonoBehaviour
     private float tempSpeed;
     private AIPath aiPath;
     private Transform player;
+    
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
         aiPath = GetComponent<AIPath>();
         aiPath.canMove = false;
         aiPath.canSearch = false;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        
 
         // set the player as the target for pathfinding
         GetComponent<AIDestinationSetter>().target = player;
