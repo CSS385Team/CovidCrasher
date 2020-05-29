@@ -14,6 +14,9 @@ public class CameraFollow : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (target == null)
+            return;
+
         Vector3 moveToPlayer = target.position + offset;
         Vector3 newPos = Vector3.Lerp(target.position, moveToPlayer, smoothSpeed);
 
