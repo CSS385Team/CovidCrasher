@@ -11,30 +11,25 @@ public class EnemySpawnerScript : MonoBehaviour
     public float spawnRate = 2f;
     float nextSpawn = 0.0f;
     float lookRadius = 20f;
-    private GameObject player;
+    private Transform player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //Delay until sucessfully initiate
-        Invoke("find", 0.1f);
+        
     }
 
-    void find()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null)
-        {
-            player = playerSpawner.GetComponent<playerSpawn>().getPlayer();
-        }
-    }
 
     // Update is called once per frame
     void Update()
     {
         if (player == null)
-            return;
+        {
+            player = GameObject.FindGameObjectWithTag("Player")?.transform;
+            if (player == null)
+                return;
+        }
 
         var distance = Vector3.Distance(transform.position, player.position);
         if (distance < lookRadius)
