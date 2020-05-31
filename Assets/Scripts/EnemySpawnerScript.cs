@@ -6,18 +6,20 @@ using Pathfinding;
 public class EnemySpawnerScript : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject playerSpawner;
     Vector2 whereToSpawn;
-    public float spawnRate = 2f;
+    public float nearSpawnRate = 1f;
+    public float farSpawnRate = 3f;
+
+    private float spawnRate;
     float nextSpawn = 0.0f;
-    float lookRadius = 20f;
+    public float lookRadius = 20f;
     private Transform player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.SetActive(false);
     }
 
 
@@ -34,12 +36,19 @@ public class EnemySpawnerScript : MonoBehaviour
         var distance = Vector3.Distance(transform.position, player.position);
         if (distance < lookRadius)
         {
-            if (Time.time > nextSpawn)
-            {
-                nextSpawn = Time.time + spawnRate;
-                whereToSpawn = new Vector2(transform.position.x, transform.position.y);
-                Instantiate(enemyPrefab, whereToSpawn, Quaternion.identity);
-            }
-        }   
+            spawnRate = nearSpawnRate;
+        }
+        else
+        {
+            spawnRate = farSpawnRate;
+        }
+
+        if (Time.time > nextSpawn)
+        {
+            nextSpawn = Time.time + spawnRate;
+            whereToSpawn = new Vector2(transform.position.x, transform.position.y);
+            var enemy = Instantiate(enemyPrefab, whereToSpawn, Quaternion.identity);
+            enemy.GetComponent<EnemyMovement>().ChasePlayer();
+        }
     }
 }

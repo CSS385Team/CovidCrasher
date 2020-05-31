@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  lookRadius: 15
+  lookRadius: 22
 --- !u!50 &3657375900846744657
 Rigidbody2D:
   serializedVersion: 4
@@ -246,5 +246,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  healthBarAdjust: {fileID: 0}
-  shieldBarAdjust: {fileID: 0}
