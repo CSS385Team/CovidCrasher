@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
         gameOverPanel = GameObject.Find("YouDiedPanel");
-        gameOverPanel.SetActive(false);
+        gameOverPanel?.SetActive(false);
 
 
     }
@@ -65,6 +65,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         Debug.Log("Player Died");
-        gameOverPanel.SetActive(true);
+        gameOverPanel?.SetActive(true);
     }
 }
