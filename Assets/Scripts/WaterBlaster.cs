@@ -33,7 +33,7 @@ public class WaterBlaster : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.layer ==8)
+        if (collision.gameObject.layer == 11)
         Destroy(gameObject);
 
     }
