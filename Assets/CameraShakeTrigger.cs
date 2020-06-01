@@ -12,7 +12,7 @@ public class CameraShakeTrigger : MonoBehaviour
     public CameraShake cameraShake;
     public float duration = 1f;
     public float magnitude = .4f;
-
+    public float rate = .05f;
 
     // Update is called once per frame
     void Update()
@@ -20,7 +20,7 @@ public class CameraShakeTrigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("camera shake!");
-            cameraShake.Shake(duration, magnitude);
+            cameraShake.Shake(duration, magnitude, rate);
            
         }
     }
