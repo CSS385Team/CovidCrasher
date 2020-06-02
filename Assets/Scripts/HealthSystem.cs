@@ -127,9 +127,4 @@ public class HealthSystem : MonoBehaviour
         inGracePeriod = false;
     }
 
-    void OnDestroy() {
-        if (this.gameObject.CompareTag("Boss")) {
-            SceneManager.LoadScene("MainMenu");
-        }
-    }
 }
