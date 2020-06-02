@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class HealthSystem : MonoBehaviour
@@ -97,6 +96,7 @@ public class HealthSystem : MonoBehaviour
                     }
                     else
                     {
+
                         /* change from destroy to death sprite */
                         Destroy(gameObject);
                     }
