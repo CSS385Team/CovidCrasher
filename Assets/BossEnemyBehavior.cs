@@ -5,12 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class BossEnemyBehavior : MonoBehaviour
 {
+    public HealthSystem enemyHealth;
+    bool enemyDied = false;
 
-    void OnDestroy() {
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
-        Destroy(GameObject.FindGameObjectWithTag("UI"));
-        Destroy(GameObject.FindGameObjectWithTag("Music"));
-        SceneManager.LoadScene(4);
+    void Update() {
+        if (enemyHealth.health == 1)
+            died();
+    }
+
+    void died()
+    {
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            Destroy(GameObject.FindGameObjectWithTag("UI"));
+            Destroy(GameObject.FindGameObjectWithTag("Music"));
+            SceneManager.LoadScene(4);
+       
     }
     
 }
