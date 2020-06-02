@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5118801112294072244}
   - component: {fileID: 5118801112294072251}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,4 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3137941246898859465, guid: 8ef5dab267ede05469d4271d419d72a7,
     type: 3}
-  spawnRate: 2
+  nearSpawnRate: 1
+  farSpawnRate: 3
+  activeOnStart: 1
+  lookRadius: 20

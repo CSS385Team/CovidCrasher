@@ -18,6 +18,7 @@ public class SceneManagingButton : MonoBehaviour
     {
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         Destroy(GameObject.FindGameObjectWithTag("UI"));
+        Destroy(GameObject.FindGameObjectWithTag("Music"));
         SceneManager.LoadScene(0);
     }
 }
