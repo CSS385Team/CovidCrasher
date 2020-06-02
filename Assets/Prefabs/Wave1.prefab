@@ -127,6 +127,7 @@ MonoBehaviour:
   waveSpawner1: {fileID: 6408158156760892199}
   waveSpawner2: {fileID: 6408158157223113197}
   cameraShake: {fileID: 0}
+  earthQuakeSound: {fileID: 8300000, guid: 620b2e95eec528d468418c13dc38a413, type: 3}
 --- !u!1 &6408158156036754778
 GameObject:
   m_ObjectHideFlags: 0
