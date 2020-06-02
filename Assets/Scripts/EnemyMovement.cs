@@ -9,54 +9,78 @@ public class EnemyMovement : MonoBehaviour
     /* Functional with WASD and arrow keys.
     Player character moves constantly at top speed,
     and stops as soon as the key is let go.*/
-    
-	public float speed;
+
+    public float speed;
     public float lookRadius = 10f;
+    public bool isChasing = false;
 
     private Rigidbody2D rb;
     private Vector2 mv;
     private float tempSpeed;
     private AIPath aiPath;
     private Transform player;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
         aiPath = GetComponent<AIPath>();
-        aiPath.canMove = false;
-        aiPath.canSearch = false;
-        player = GetComponent<AIDestinationSetter>().target;
+        aiPath.canMove = isChasing;
+        aiPath.canSearch = isChasing;
+        
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        // set the player as the target for pathfinding
+        GetComponent<AIDestinationSetter>().target = player;
     }
 
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player")?.transform;
+            if(player == null)
+                return;
+            // set the player as the target for pathfinding
+            GetComponent<AIDestinationSetter>().target = player;
+        }
+
         aiPath.maxSpeed = speed;
         // if enemy is at x distance from player, then start searching/following
         var distance = Vector3.Distance(transform.position, player.position);
         if (distance < lookRadius)
         {
+            ChasePlayer();
+        }
+    }
+
+    public void ChasePlayer()
+    {
+        isChasing = true;
+        if (aiPath)
+        {
             aiPath.canMove = true;
             aiPath.canSearch = true;
         }
     }
-    
+
     // Gabe: Funtion inspired by Playground Challenge Code "ConditionArea"
     void OnTriggerStay2D(Collider2D otherCollider)
-	{
-		if(otherCollider.CompareTag("Mucus"))
-		{
+    {
+        if (otherCollider.CompareTag("Mucus"))
+        {
             Debug.Log("Collided!");
-			this.speed = 2;
-		}
-	}
+            this.speed = 2;
+        }
+    }
 
     private void OnTriggerExit2D(Collider2D otherCollider)
-	{
-		if(otherCollider.CompareTag("Mucus"))
-		{
-			this.speed = tempSpeed;
+    {
+        if (otherCollider.CompareTag("Mucus"))
+        {
+            this.speed = tempSpeed;
         }
-	}
+    }
 
 }

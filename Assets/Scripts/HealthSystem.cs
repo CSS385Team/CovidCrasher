@@ -1,5 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class HealthSystem : MonoBehaviour
 {
@@ -11,12 +14,12 @@ public class HealthSystem : MonoBehaviour
     // Will be set to 0 or 1 depending on how the GameObject is tagged
     // it's -1 if the object is not a player
     private int playerNumber;
-    public HealthBarAdjust healthBarAdjust;
-    public ShieldBarAdjust shieldBarAdjust;
+    private HealthBarAdjust healthBarAdjust;
+    private ShieldBarAdjust shieldBarAdjust;
     private int shield;
-    public Animator animator;
 
 
+    private bool inGracePeriod;
 
     private void Start()
     {
@@ -28,13 +31,17 @@ public class HealthSystem : MonoBehaviour
         {
             case "Player":
                 playerNumber = 0;
-                
+
                 break;
             default:
                 playerNumber = -1;
                 break;
         }
-
+        if (playerNumber == 0 || playerNumber == 1)
+        {
+            healthBarAdjust = GameObject.Find("healthBarContainer").GetComponent<HealthBarAdjust>();
+            shieldBarAdjust = GameObject.Find("shieldContainer").GetComponent<ShieldBarAdjust>();
+        }
         // Notify the UI so it will show the right initial amount
         // if (ui != null
         //     && playerNumber != -1)
@@ -53,46 +60,46 @@ public class HealthSystem : MonoBehaviour
     // also notifies the UI (if present)
     public void ModifyHealth(int amount)
     {
-        if (shield > 0 && amount < 0)
+        if (!inGracePeriod)
         {
-            shield--;
-            shieldBarAdjust.setShield(shield);
-        }
-        else
-        {
-
-
-            // Avoid going over the maximum health
-            if (health + amount > maxHealth)
+            if (shield > 0 && amount < 0)
             {
-                amount = maxHealth - health;
+                shield--;
+                shieldBarAdjust.setShield(shield);
             }
-
-            health += amount;
-
-
-            // Notify the UI so it will change the number in the corner
-            // if (ui != null
-            //     && playerNumber != -1)
-            // {
-            //     ui.ChangeHealth(amount, playerNumber);
-            // }
-            if (playerNumber == 0 || playerNumber == 1)
+            else
             {
-                Debug.Log("Player Health modified");
-                healthBarAdjust.SetHealth(health);
-            }
-            // Dead
-            if (health <= 0)
-            {
+                // Avoid going over the maximum health
+                if (health + amount > maxHealth)
+                {
+                    amount = maxHealth - health;
+                }
+
+                health += amount;
+                // Notify the UI so it will change the number in the corner
+                // if (ui != null
+                //     && playerNumber != -1)
+                // {
+                //     ui.ChangeHealth(amount, playerNumber);
+                // }
                 if (playerNumber == 0 || playerNumber == 1)
                 {
-                    gameObject.SetActive(false);
+                    Debug.Log("Player Health modified");
+                    healthBarAdjust.SetHealth(health);
                 }
-                else
+                // Dead
+                if (health <= 0)
                 {
-                    /* change from destroy to death sprite */
-                    Destroy(gameObject);
+                    if (playerNumber == 0 || playerNumber == 1)
+                    {
+                        gameObject.SetActive(false);
+                        //Destroy(gameObject);
+                    }
+                    else
+                    {
+                        /* change from destroy to death sprite */
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
@@ -102,5 +109,16 @@ public class HealthSystem : MonoBehaviour
     {
         shield = unit;
         shieldBarAdjust.buyShield(unit);
+    }
+
+    public void setGracePeriod(float second)
+    {
+        inGracePeriod = true;
+        Invoke("expireGracePeriod", second);
+    }
+
+    private void expireGracePeriod()
+    {
+        inGracePeriod = false;
     }
 }

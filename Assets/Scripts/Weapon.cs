@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     private float timeSpawn = 0f;
     public WaterBlaster water;
+    private bool dontShoot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,10 +58,21 @@ public class Weapon : MonoBehaviour
            case WaterBlaster.:
                blasterWeapon();
        }*/
-
-        blasterWeapon(angle);
+        if (dontShoot == false)
+        {
+            blasterWeapon(angle);
+        }
     }
 
+    public void allowShoot()
+    {
+        dontShoot = false;
+    }
+
+    public void blockShoot()
+    {
+        dontShoot = true;
+    }
 
     // https://answers.unity.com/questions/855976/make-a-player-model-rotate-towards-mouse-location.html
     // this method that calculates the angle between two vectors was found from the source above
@@ -85,13 +97,19 @@ public class Weapon : MonoBehaviour
     }
 
     // this method handles instantiating the water gun bullets
+
+    public void equipTripleShot()
+    {
+        water.tripleShot = true;
+    }
+
+    public void equipSingleShot()
+    {
+        water.tripleShot = false;
+    }
+
     void blasterWeapon(float angle)
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log("Activated!");
-            water.tripleShot = !water.tripleShot;
-        }
 
         if (Input.GetMouseButton(0) && (Time.time - timeSpawn) > 0.5f)
         {
@@ -102,8 +120,8 @@ public class Weapon : MonoBehaviour
             {
                 Debug.Log("Triple Shot");
                 Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 90f))); // straight shot
-                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 135f))); // slightly upwards
-                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 50f))); // slightly downwards
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 120f))); // slightly upwards
+                Instantiate(projectile, transform.position, Quaternion.Euler(new Vector3(0f, 0f, angle + 60f))); // slightly downwards
 
             }
             // do a single shot
