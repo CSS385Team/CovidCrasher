@@ -33,6 +33,7 @@ public class HealthModification : MonoBehaviour {
             if (destroyWhenActivated)
             {
                 Destroy(this.gameObject);
+
             }
         }
     }
