@@ -375,9 +375,11 @@ MonoBehaviour:
     tasked with traversing through their respiratory system from the nasal cavity,
     down the trachea and finally into the lungs, fighting the virus along the way
     using unconventional tools. \n\nEmbark on a treacherous journey, in hopes of
-    delivering the cure to the center of the disease.\n\nUtilize the Resource Generator
-    by clicking on it to collect points that can be used for buying various items.
-    Take advantage of these upgrades to make it safely to the next area!\n\n"
+    delivering the cure to the center of the disease.\n\nOBJECTIVE:\nTravel to the
+    end of each level while attempting to stay alive. Click on the Resource Generator
+    in the top right of the screen to collect points that can be used for buying
+    various items. Take advantage of these upgrades to make it safely to the next
+    area!"
 --- !u!222 &369769058
 CanvasRenderer:
   m_ObjectHideFlags: 0
