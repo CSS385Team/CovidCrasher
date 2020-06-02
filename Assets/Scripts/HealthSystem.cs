@@ -21,8 +21,6 @@ public class HealthSystem : MonoBehaviour
 
     private bool inGracePeriod;
 
-
-
     private void Start()
     {
         // Find the UI in the scene and store a reference for later use
@@ -33,7 +31,7 @@ public class HealthSystem : MonoBehaviour
         {
             case "Player":
                 playerNumber = 0;
-                
+
                 break;
             default:
                 playerNumber = -1;
@@ -44,7 +42,7 @@ public class HealthSystem : MonoBehaviour
             healthBarAdjust = GameObject.Find("healthBarContainer").GetComponent<HealthBarAdjust>();
             shieldBarAdjust = GameObject.Find("shieldContainer").GetComponent<ShieldBarAdjust>();
         }
-            // Notify the UI so it will show the right initial amount
+        // Notify the UI so it will show the right initial amount
         // if (ui != null
         //     && playerNumber != -1)
         // {
@@ -55,10 +53,7 @@ public class HealthSystem : MonoBehaviour
         if (playerNumber == 0 || playerNumber == 1)
             healthBarAdjust.SetMaxHealth(maxHealth);
         shield = 0;
-
-
-       
-}
+    }
 
 
     // changes the energy from the player
@@ -126,5 +121,4 @@ public class HealthSystem : MonoBehaviour
     {
         inGracePeriod = false;
     }
-
 }
