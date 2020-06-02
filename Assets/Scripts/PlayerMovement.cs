@@ -65,6 +65,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         Debug.Log("Player Died");
-        gameOverPanel?.SetActive(true);
+        this?.gameOverPanel?.SetActive(true);
     }
 }

@@ -6,9 +6,9 @@ using Pathfinding;
 public class EnemySpawnerScript : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    Vector2 whereToSpawn;
     public float nearSpawnRate = 1f;
     public float farSpawnRate = 3f;
+    public bool activeOnStart = false;
 
     private float spawnRate;
     float nextSpawn = 0.0f;
@@ -19,7 +19,7 @@ public class EnemySpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(activeOnStart);
     }
 
 
@@ -46,7 +46,7 @@ public class EnemySpawnerScript : MonoBehaviour
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
-            whereToSpawn = new Vector2(transform.position.x, transform.position.y);
+            var whereToSpawn = new Vector2(transform.position.x, transform.position.y);
             var enemy = Instantiate(enemyPrefab, whereToSpawn, Quaternion.identity);
             enemy.GetComponent<EnemyMovement>().ChasePlayer();
         }

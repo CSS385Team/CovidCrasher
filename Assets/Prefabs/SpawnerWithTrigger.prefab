@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8432797035697857519}
   m_Layer: 0
-  m_Name: SpawnerPrefab
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,6 +161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118801112294072251, guid: 6a26faa6020f61748b17d679ce220632,
+        type: 3}
+      propertyPath: activeOnStart
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a26faa6020f61748b17d679ce220632, type: 3}
