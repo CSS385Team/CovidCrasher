@@ -9,6 +9,7 @@ public class WaterBlaster : MonoBehaviour
     private float speed = 10f;
     private float time;
     public bool tripleShot = false;
+    public GameObject explosionEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,11 @@ public class WaterBlaster : MonoBehaviour
     {
         if (collision.gameObject.layer == 11)
         Destroy(gameObject);
+    }
 
+    public void OnDestroy()
+    {
+        //show effect
+        var explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
     }
 }

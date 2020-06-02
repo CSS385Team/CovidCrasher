@@ -151,3 +151,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -5849748524418816569}
   tripleShot: 0
+  explosionEffect: {fileID: 9042638690238047328, guid: a99c271048003644db92a92fe73f9507,
+    type: 3}
