@@ -1,5 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class HealthSystem : MonoBehaviour
 {
@@ -122,5 +125,11 @@ public class HealthSystem : MonoBehaviour
     private void expireGracePeriod()
     {
         inGracePeriod = false;
+    }
+
+    void OnDestroy() {
+        if (this.gameObject.CompareTag("Boss")) {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
