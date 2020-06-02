@@ -101,8 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8c48c4c79c36942ad78e21da3767dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  lookRadius: 15
+  speed: 5
+  lookRadius: 22
+  isChasing: 0
 --- !u!50 &3657375900846744657
 Rigidbody2D:
   serializedVersion: 4
@@ -246,5 +247,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  healthBarAdjust: {fileID: 0}
-  shieldBarAdjust: {fileID: 0}

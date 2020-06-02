@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
     public float speed;
     public float lookRadius = 10f;
+    public bool isChasing = false;
 
     private Rigidbody2D rb;
     private Vector2 mv;
@@ -25,8 +26,8 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
         aiPath = GetComponent<AIPath>();
-        aiPath.canMove = false;
-        aiPath.canSearch = false;
+        aiPath.canMove = isChasing;
+        aiPath.canSearch = isChasing;
         
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
@@ -49,6 +50,15 @@ public class EnemyMovement : MonoBehaviour
         // if enemy is at x distance from player, then start searching/following
         var distance = Vector3.Distance(transform.position, player.position);
         if (distance < lookRadius)
+        {
+            ChasePlayer();
+        }
+    }
+
+    public void ChasePlayer()
+    {
+        isChasing = true;
+        if (aiPath)
         {
             aiPath.canMove = true;
             aiPath.canSearch = true;
