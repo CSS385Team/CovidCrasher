@@ -9,8 +9,18 @@ using UnityEngine.SceneManagement;
 
 public class EndGoalBehavior : MonoBehaviour
 {
+    private string sceneName;
+
+    void Start() {
+        sceneName = SceneManager.GetActiveScene().name;
+    }
+
     void OnTriggerEnter2D() {
         Debug.Log("Collided!");
-        SceneManager.LoadScene("Level2Esophagus");
+        if (sceneName == "UISampleScene") {
+            SceneManager.LoadScene("Level2Esophagus");
+        } else {
+            SceneManager.LoadScene("Level3Lungs");
+        }
     }
 }
