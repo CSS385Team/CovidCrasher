@@ -8,13 +8,16 @@ public class waveTrigger : MonoBehaviour
     public GameObject waveSpawner1;
     public GameObject waveSpawner2;
     public CameraShake cameraShake;
+    public AudioClip earthQuakeSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            transform.parent.gameObject.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(earthQuakeSound, 0.2f);
             cameraShake.Shake(1.5f, 0.25f, 0.05f);
             waveSpawnEnemies();
+            
         }
     }
 
@@ -34,6 +37,7 @@ public class waveTrigger : MonoBehaviour
         }
         gameObject.transform.parent.gameObject.SetActive(false);
     }
+    
 
 
 }
