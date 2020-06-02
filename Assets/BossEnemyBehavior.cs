@@ -10,7 +10,7 @@ public class BossEnemyBehavior : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         Destroy(GameObject.FindGameObjectWithTag("UI"));
         Destroy(GameObject.FindGameObjectWithTag("Music"));
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
     
 }
