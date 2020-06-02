@@ -13,10 +13,11 @@ public class WaterBlaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         if(tripleShot)
         {
             this.gameObject.transform.localScale = new Vector3(transform.localScale.x/2f, transform.localScale.y/2f, transform.localScale.z/2f);
-        }
+        }*/
         time = 1f;
         rb.velocity = transform.up * speed;
     }
