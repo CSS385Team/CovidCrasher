@@ -8,20 +8,26 @@ public class playerSpawn : MonoBehaviour
    
     GameObject playerObject;
     GameObject UIObject;
+    GameObject BGM;
     private Transform player;
     public GameObject playerPrefab;
     public GameObject UIPrefab;
+    public GameObject LevelMusicPrefab;
 
     void Awake()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
         UIObject = GameObject.FindGameObjectWithTag("UI");
+        BGM = GameObject.FindGameObjectWithTag("Music");
         playerObject = GameObject.FindGameObjectWithTag("Player");
         UIObject = GameObject.FindGameObjectWithTag("UI");
+        BGM = GameObject.FindGameObjectWithTag("Music");
         playerObject = GameObject.FindGameObjectWithTag("Player");
         UIObject = GameObject.FindGameObjectWithTag("UI");
+        BGM = GameObject.FindGameObjectWithTag("Music");
         playerObject = GameObject.FindGameObjectWithTag("Player");
         UIObject = GameObject.FindGameObjectWithTag("UI");
+        BGM = GameObject.FindGameObjectWithTag("Music");
         if (playerObject == null)
             playerObject = Instantiate(playerPrefab);
         else
@@ -32,6 +38,11 @@ public class playerSpawn : MonoBehaviour
             UIObject = Instantiate(UIPrefab);
         else
             Debug.Log("UI exist");
+        if (BGM == null)
+        {
+            BGM = Instantiate(LevelMusicPrefab);
+        }
+
     }
 
     public GameObject getPlayer()
