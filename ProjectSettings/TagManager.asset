@@ -8,6 +8,8 @@ TagManager:
   - Mucus
   - Weapon
   - UI
+  - Music
+  - Boss
   layers:
   - Default
   - TransparentFX
