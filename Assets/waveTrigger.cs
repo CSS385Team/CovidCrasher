@@ -14,7 +14,7 @@ public class waveTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            transform.parent.gameObject.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(earthQuakeSound, 0.2f);
+            transform.parent.gameObject.transform.parent.gameObject.GetComponent<AudioSource>().PlayOneShot(earthQuakeSound, 0.3f);
             cameraShake.Shake(1.5f, 0.25f, 0.05f);
             waveSpawnEnemies();
             
