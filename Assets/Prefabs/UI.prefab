@@ -4273,10 +4273,10 @@ RectTransform:
   m_Father: {fileID: 7013051192119484993}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -100, y: 8.409424}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_SizeDelta: {x: 733.47925, y: 608.4094}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7013051194054049212
 CanvasRenderer:
@@ -4320,4 +4320,4 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Controls:\n\nMovement \t\t\t\t-\t WASD\nAiming \t     \t\t\t-\t Mouse
     Cursor\nShoot / Click \t\t\t-\t Left Mouse Button\n\nShop\t\t\t\t\t\t- \t TAB\nUse
-    Items\t\t\t\t- \t 1 2\nCHnage Weapon  \t\t- \t Z\n\nPress 'H' to toggle for help."
+    Items\t\t\t\t- \t 1 2\nChange Weapon  \t\t- \t Z\n\nPress 'H' to toggle for help."
