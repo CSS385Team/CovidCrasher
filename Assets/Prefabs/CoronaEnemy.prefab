@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8c48c4c79c36942ad78e21da3767dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 9
   lookRadius: 22
   isChasing: 0
 --- !u!50 &3657375900846744657
@@ -173,7 +173,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 0
   canMove: 0
-  maxSpeed: 5
+  maxSpeed: 9
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2
