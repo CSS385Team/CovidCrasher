@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Gabe: edited code from "HealthModification" specifically for the linear Spikes
+
 public class LinearSpikeHealthModBehaviour : MonoBehaviour
 {
     public bool destroyWhenActivated = false;
@@ -26,7 +28,7 @@ public class LinearSpikeHealthModBehaviour : MonoBehaviour
                 healthScript.ModifyHealth(healthChange);
             }
 
-            if (destroyWhenActivated && !GameObject.FindGameObjectWithTag("Enemy"))
+            if (destroyWhenActivated && colliderData.gameObject.tag != "Enemy")
             {
                 Destroy(this.gameObject);
 
