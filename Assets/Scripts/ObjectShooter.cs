@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-/* Code taken from Unity's Playground "ObjectShooter" code *//*
+/* Code taken from Unity's Playground "ObjectShooter" code */
 
 public class ObjectShooter : MonoBehaviour
 {
@@ -51,7 +51,7 @@ public class ObjectShooter : MonoBehaviour
 
 			GameObject newObject = Instantiate<GameObject>(prefabToSpawn);
 			newObject.transform.position = this.transform.position;
-			newObject.transform.eulerAngles = new Vector3(0f, 0f, Utils.Angle(actualBulletDirection));
+			//newObject.transform.eulerAngles = new Vector3(0f, 0f, Utils.Angle(actualBulletDirection));
 			newObject.tag = "Bullet";
 
 			// push the created objects, but only if they have a Rigidbody2D
@@ -62,12 +62,12 @@ public class ObjectShooter : MonoBehaviour
 			}
 
 			// add a Bullet component if the prefab doesn't already have one, and assign the player ID
-			BulletAttribute b = newObject.GetComponent<BulletAttribute>();
-			if(b == null)
-			{
-				b = newObject.AddComponent<BulletAttribute>();
-			}
-			b.playerId = playerNumber;
+			//BulletAttribute b = newObject.GetComponent<BulletAttribute>();
+			//if(b == null)
+			//{
+				//b = newObject.AddComponent<BulletAttribute>();
+			//}
+			//b.playerId = playerNumber;
 
 
 
@@ -80,7 +80,7 @@ public class ObjectShooter : MonoBehaviour
 		if(this.enabled)
 		{
 			float extraAngle = (relativeToRotation) ? transform.rotation.eulerAngles.z : 0f;
-			Utils.DrawShootArrowGizmo(transform.position, shootDirection, extraAngle, 1f);
+			//Utils.DrawShootArrowGizmo(transform.position, shootDirection, extraAngle, 1f);
 		}
 	}
-}*/
+}
