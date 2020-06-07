@@ -3,8 +3,8 @@ using System.Collections;
 //using UnityEngine.Diagnostics;
 
 
-/* Code inspired by Unity's Playground "ObjectShooter"
-code and this YouTube video: https://www.youtube.com/watch?v=_Z1t7MNk0c4*/
+/* Code inspired by Unity's Playground "ObjectShooter" code 
+and this YouTube video: https://www.youtube.com/watch?v=_Z1t7MNk0c4*/
 
 public class ObjectShooter : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class ObjectShooter : MonoBehaviour
 	void Start ()
 	{
 		//timeOfLastSpawn = -creationRate;
-		player = GameObject.FindGameObjectWithTag("Player").transform;
+		//player = GameObject.FindGameObjectWithTag("Player").transform;
 
 		timeBtwShots = startTimeBtwShots;
 	}
