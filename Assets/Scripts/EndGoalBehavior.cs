@@ -11,16 +11,19 @@ public class EndGoalBehavior : MonoBehaviour
 {
     private string sceneName;
 
+    public bool goalReached = false;
+
     void Start() {
         sceneName = SceneManager.GetActiveScene().name;
     }
 
     void OnTriggerEnter2D() {
-        Debug.Log("Collided!");
-        if (sceneName == "UISampleScene") {
+        Debug.Log("Collided with Goal");
+        goalReached = true;
+        /*if (sceneName == "UISampleScene") {
             SceneManager.LoadScene("Level2Esophagus");
         } else {
             SceneManager.LoadScene("Level3Lungs");
-        }
+        }*/
     }
 }

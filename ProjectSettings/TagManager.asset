@@ -10,6 +10,7 @@ TagManager:
   - UI
   - Music
   - Boss
+  - End_Goal
   layers:
   - Default
   - TransparentFX
