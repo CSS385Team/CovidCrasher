@@ -16,6 +16,6 @@ MonoBehaviour:
   itemName: Triple Shot Upgrade
   ImagePrefab: {fileID: 9012621529582068705, guid: 1b0916dd050338f4e95888a7522a46b2,
     type: 3}
-  price: 100
+  price: 170
   assetImage: {fileID: 21300000, guid: 3d815849936a790488216ac45f2e3f9e, type: 3}
   itemDescription: Shot 3 bullets at a time
