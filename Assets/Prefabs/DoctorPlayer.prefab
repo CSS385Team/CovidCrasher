@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   gameOverPanel: {fileID: 0}
+  speedBoostDuration: 3
 --- !u!60 &1928935060683569117
 PolygonCollider2D:
   m_ObjectHideFlags: 0
