@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 mv;
     private float tempSpeed;
     public GameObject gameOverPanel;
+    public float speedBoostDuration = 3f;
 
     void Start()
     {
@@ -21,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
         tempSpeed = speed;
         gameOverPanel = GameObject.Find("YouDiedPanel");
         gameOverPanel?.SetActive(false);
-
-
     }
 
     void Update()
@@ -43,10 +42,19 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(otherCollider.CompareTag("Mucus"))
 		{
-            Debug.Log("Collided!");
+            //Debug.Log("Collided!");
 			this.speed = 2;
 		}
+        if(otherCollider.CompareTag("Saliva")) {
+            StartCoroutine(speedBoost());
+        }
 	}
+
+    IEnumerator speedBoost() {
+        this.speed = 11;
+        yield return new WaitForSeconds(speedBoostDuration);
+        this.speed = tempSpeed;
+    }
 
     private void OnTriggerExit2D(Collider2D otherCollider)
 	{
