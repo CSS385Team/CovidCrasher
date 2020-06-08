@@ -104,7 +104,10 @@ public class HealthSystem : MonoBehaviour
             }
         }
     }
-
+    public int returnShield()
+    {
+        return shield;
+    }
     public void setShield(int unit)
     {
         shield = unit;

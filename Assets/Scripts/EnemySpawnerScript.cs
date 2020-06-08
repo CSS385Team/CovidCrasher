@@ -14,6 +14,7 @@ public class EnemySpawnerScript : MonoBehaviour
     float nextSpawn = 0.0f;
     public float lookRadius = 20f;
     private Transform player;
+    private bool triggerOn= true;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,10 @@ public class EnemySpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (triggerOn == false)
+        {
+            return;
+        }
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
@@ -49,6 +54,21 @@ public class EnemySpawnerScript : MonoBehaviour
             var whereToSpawn = new Vector2(transform.position.x, transform.position.y);
             var enemy = Instantiate(enemyPrefab, whereToSpawn, Quaternion.identity);
             enemy.GetComponent<EnemyMovement>().ChasePlayer();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            triggerOn = false;
+        }
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            triggerOn = true;
         }
     }
 }
