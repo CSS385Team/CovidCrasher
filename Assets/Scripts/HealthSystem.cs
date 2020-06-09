@@ -16,6 +16,7 @@ public class HealthSystem : MonoBehaviour
     private HealthBarAdjust healthBarAdjust;
     private ShieldBarAdjust shieldBarAdjust;
     private int shield;
+    private HealthBarAdjust bossHealthBarAdjust;
 
 
     private bool inGracePeriod;
@@ -30,7 +31,10 @@ public class HealthSystem : MonoBehaviour
         {
             case "Player":
                 playerNumber = 0;
+                break;
 
+            case "Boss":
+                playerNumber = 2;
                 break;
             default:
                 playerNumber = -1;
@@ -41,6 +45,13 @@ public class HealthSystem : MonoBehaviour
             healthBarAdjust = GameObject.Find("healthBarContainer").GetComponent<HealthBarAdjust>();
             shieldBarAdjust = GameObject.Find("shieldContainer").GetComponent<ShieldBarAdjust>();
         }
+        if (playerNumber == 2)
+        {
+            healthBarAdjust = GameObject.Find("bossHealthBar").GetComponent<HealthBarAdjust>();
+            Debug.Log("enemyHealthBarSet");
+
+           healthBarAdjust.gameObject.SetActive(false);
+        }
         // Notify the UI so it will show the right initial amount
         // if (ui != null
         //     && playerNumber != -1)
@@ -49,7 +60,7 @@ public class HealthSystem : MonoBehaviour
         // }
 
         maxHealth = health; //note down the maximum health to avoid going over it when the player gets healed
-        if (playerNumber == 0 || playerNumber == 1)
+        if (playerNumber == 0 || playerNumber == 1 || playerNumber == 2)
             healthBarAdjust.SetMaxHealth(maxHealth);
         shield = 0;
     }
@@ -81,10 +92,12 @@ public class HealthSystem : MonoBehaviour
                 // {
                 //     ui.ChangeHealth(amount, playerNumber);
                 // }
-                if (playerNumber == 0 || playerNumber == 1)
+                if (playerNumber == 0 || playerNumber == 1 || playerNumber == 2)
                 {
-                    Debug.Log("Player Health modified");
+                    if(playerNumber == 2)
+                        Debug.Log("Boss Health: " + health);
                     healthBarAdjust.SetHealth(health);
+
                 }
                 // Dead
                 if (health <= 0)
@@ -93,7 +106,9 @@ public class HealthSystem : MonoBehaviour
                     {
                         gameObject.SetActive(false);
                         //Destroy(gameObject);
-                    }
+                    } else if (playerNumber == 2)
+                        GetComponent<BossEnemyBehavior>().died();
+                   
                     else
                     {
 
@@ -104,7 +119,10 @@ public class HealthSystem : MonoBehaviour
             }
         }
     }
-
+    public int returnShield()
+    {
+        return shield;
+    }
     public void setShield(int unit)
     {
         shield = unit;
