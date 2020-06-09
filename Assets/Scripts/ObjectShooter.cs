@@ -26,7 +26,7 @@ public class ObjectShooter : MonoBehaviour
 	void Start ()
 	{
 		//timeOfLastSpawn = -creationRate;
-		//player = GameObject.FindGameObjectWithTag("Player").transform;
+		player = GameObject.FindGameObjectWithTag("Player").transform;
 
 		timeBtwShots = startTimeBtwShots;
 	}
