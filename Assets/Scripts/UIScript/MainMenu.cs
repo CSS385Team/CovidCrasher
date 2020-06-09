@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public Dialogue IntroDialogue;
     public GameObject DialogueBox;
+    public Image img;
 
 
     public void PlayGame()
@@ -23,6 +25,16 @@ public class MainMenu : MonoBehaviour
         Debug.Log("QUIT!");
         Application.Quit();
         //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    void Start()
+    {
+        img.enabled = true;
+    }
+
+    public void Hide()
+    {
+        img.enabled = false;
     }
 
 }

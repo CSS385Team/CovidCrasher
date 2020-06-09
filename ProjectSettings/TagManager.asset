@@ -11,6 +11,8 @@ TagManager:
   - Music
   - Boss
   - End_Goal
+  - Saliva
+  - Bullet
   layers:
   - Default
   - TransparentFX
