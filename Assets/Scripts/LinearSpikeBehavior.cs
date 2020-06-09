@@ -36,6 +36,8 @@ public class LinearSpikeBehavior : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, angleOfTravel - 270f);
 
         GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+        // destroy the spike after 2 seconds
+        Destroy(gameObject, 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
