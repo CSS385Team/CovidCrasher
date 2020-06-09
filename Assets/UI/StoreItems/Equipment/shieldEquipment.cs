@@ -14,9 +14,4 @@ public class shieldEquipment : MonoBehaviour
         playerHealth = player[0].GetComponent<HealthSystem>();
         playerHealth.setShield(shieldUnit);
     }
-
-    public bool fullShield()
-    {
-        return (playerHealth.returnShield() == shieldUnit);
-    }
 }

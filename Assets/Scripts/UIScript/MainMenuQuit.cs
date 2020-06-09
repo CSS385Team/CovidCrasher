@@ -8,5 +8,8 @@ public class MainMenuQuit : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
+        Destroy(GameObject.Find("DoctorPlayer"));
+        Destroy(GameObject.Find("UI"));
+        Destroy(GameObject.Find("LevelMusic"));
     }
 }

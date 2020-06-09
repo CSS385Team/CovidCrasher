@@ -21,7 +21,6 @@ public class ObjectShooter : MonoBehaviour
 
 	private float timeBtwShots;
 	public float startTimeBtwShots = 1f;
-    private float state = 0f;  // this variable keeps track of what attacks the boss will do as time progresses
 
 	// Use this for initialization
 	void Start ()
@@ -37,20 +36,8 @@ public class ObjectShooter : MonoBehaviour
 	void Update ()
 	{
 		if (timeBtwShots <= 0) {
-            // depending on the value of state, the boss will either do a linear shot, or shoot in a circular direction
-            if(state <= 1f)
-            {
-                Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
-                timeBtwShots = startTimeBtwShots;
-            }
-			else if(state >= 1f) // this should be state <= 2f, this is just to test code
-            {   
-                Instantiate(prefabToSpawn, transform.position, Quaternion.Euler(new Vector3(0f, 0f, 90f))); // straight shot
-                Instantiate(prefabToSpawn, transform.position, Quaternion.Euler(new Vector3(0f, 0f, 120f))); // slightly upwards
-                Instantiate(prefabToSpawn, transform.position, Quaternion.Euler(new Vector3(0f, 0f, 60f))); // slightly downwards
-            }
-            // can add more states such as spawning smaller enemies
-            state += 0.5f; // increment state here
+			Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+			timeBtwShots = startTimeBtwShots;
 		} else {
 			timeBtwShots -=Time.deltaTime;
 		}

@@ -15,7 +15,6 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     private int price;
     public GameObject[] clickerManager;
     public GameObject youDontHaveEnoughAlert;
-    public GameObject youAlreadyHaveItAlert;
     private string itemDescription;
 
     private void Start()
@@ -47,17 +46,14 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
                 addItemToClicker();
                 exPrice();
             }
-
         } else
         {
-            initAlert(youDontHaveEnoughAlert);
-        }
-    }
+            Debug.Log("you dont have money");
+            GameObject alert; 
+            alert = Instantiate(youDontHaveEnoughAlert, gameObject.transform, false);
+            Destroy(alert, 1);
 
-    private void initAlert(GameObject alertPrefab)
-    {
-        GameObject alert = Instantiate(alertPrefab, gameObject.transform, false);
-        Destroy(alert, 1);
+        }
     }
     
     private bool priceCheck(int myPoint)
@@ -66,7 +62,7 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         {
             return false;
         }
-
+        clickerManager[0].GetComponent<GameControlScript>().strokesAmount -= price;
         return true;
     }
 
@@ -84,7 +80,6 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
             }
 
         }
-        clickerManager[0].GetComponent<GameControlScript>().strokesAmount -= price;
     }
 
     public void addItemToEquipment()
@@ -93,25 +88,17 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         equipment = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerEquipment>();
         if (equipment.Equiped != null)
         {
-            if (equipment.Equiped.GetComponent<shieldEquipment>().fullShield())
-                initAlert(youAlreadyHaveItAlert);
-            else
             Destroy(equipment.Equiped);
         }
         equipment.Equiped = Instantiate(ItemPrefab, equipment.EquipmentSlot.transform, false);
         Debug.Log("newPrefav");
-        clickerManager[0].GetComponent<GameControlScript>().strokesAmount -= price;
     }
 
     public void addItemToWeapon()
     {
         PlayerEquipment weapon;
         weapon = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerEquipment>();
-        if (weapon.addtoGunCollection(ItemPrefab))
-            clickerManager[0].GetComponent<GameControlScript>().strokesAmount -= price;
-        else
-            initAlert(youAlreadyHaveItAlert);
-
+        weapon.addtoGunCollection(ItemPrefab);
     }
 
     public void addItemToClicker()
@@ -121,7 +108,6 @@ public class Item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
         Instantiate(ItemPrefab, clickerManager.Clicker.transform, false);
         // equipment.Equiped = Instantiate(ItemPrefab, equipment.EquipmentSlot.transform, false);
         Debug.Log("newPrefav");
-        clickerManager.strokesAmount -= price;
     }
 
     public void setImagePrefab(GameObject imagePrefab)

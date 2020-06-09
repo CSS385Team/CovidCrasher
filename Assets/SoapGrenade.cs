@@ -7,7 +7,6 @@ public class SoapGrenade : MonoBehaviour
     public double delay = 0.8f;
     public GameObject explosionEffect;
     public float radius = 5f;
-    public int healthDamage = 5;
     bool hasExploded = false;
 
 
@@ -51,8 +50,8 @@ public class SoapGrenade : MonoBehaviour
             var enemyTag = nearbyObject.gameObject.tag;
             if (enemyTag == "Enemy")
             {
-                nearbyObject.GetComponent<HealthSystem>().ModifyHealth(-healthDamage);
-                Debug.Log("affected  " + nearbyObject.tag);
+                Destroy(nearbyObject.gameObject);
+                Debug.Log("destroyed  " + nearbyObject.tag);
             }
         }
 

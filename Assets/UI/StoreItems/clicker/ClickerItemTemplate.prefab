@@ -304,8 +304,6 @@ MonoBehaviour:
   clickerManager: []
   youDontHaveEnoughAlert: {fileID: 2479119870197137988, guid: 67e3ccbf0bee6f3438fb24419787c745,
     type: 3}
-  youAlreadyHaveItAlert: {fileID: 2165734625397208062, guid: e3bd4ffdd40887d4a99b66bde4cc83a7,
-    type: 3}
 --- !u!1 &7464911661487385574
 GameObject:
   m_ObjectHideFlags: 0
