@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc51b070fa9284f41beaf009c194f0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 5210469924114562168, guid: f148b2c74d9fb194c936488a4b27457a,
+  linearShotSpike: {fileID: 5210469924114562168, guid: f148b2c74d9fb194c936488a4b27457a,
+    type: 3}
+  circularShotSpike: {fileID: 3417485868095769008, guid: 3b86283c3af3f3d4993625727dfe80ba,
     type: 3}
   player: {fileID: 0}
   startTimeBtwShots: 2

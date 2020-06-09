@@ -53,6 +53,11 @@ public class EnemyMovement : MonoBehaviour
         {
             ChasePlayer();
         }
+        else if (distance > 5*lookRadius)
+        {
+            aiPath.canMove = false;
+            aiPath.canSearch = false;
+        }
     }
 
     public void ChasePlayer()
