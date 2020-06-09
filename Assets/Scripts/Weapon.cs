@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
 
         // call method that calculates angle between mouse and player character
         float angle = AngleBetweenPoints(pos.position, mouseWorldPosition);
+        Debug.Log("Angle: " + angle);
 
         // rotate player accordingly, had to add 180f because due to the sprites orientation, player would look behind the mouse
         pos.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle + 180f));
