@@ -10,9 +10,10 @@ public class ObjectShooter : MonoBehaviour
 {
 	[Header("Object creation")]
 	
-	public GameObject prefabToSpawn;
+	public GameObject linearShotSpike;
+    public GameObject circularShotSpike;
 
-	public Transform player;
+    public Transform player;
 
 	// The key to press to create the objects/projectiles
 	//public KeyCode keyToPress = KeyCode.Space;
@@ -36,22 +37,31 @@ public class ObjectShooter : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+        if (!player)
+            return;
+
 		if (timeBtwShots <= 0) {
             // depending on the value of state, the boss will either do a linear shot, or shoot in a circular direction
-            if(state <= 1f)
+            if(state <= 10f)
             {
-                Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
-                timeBtwShots = startTimeBtwShots;
+                Instantiate(linearShotSpike, transform.position, Quaternion.identity);
             }
-			else if(state >= 1f) // this should be state <= 2f, this is just to test code
-            {   
-                Instantiate(prefabToSpawn, transform.position, Quaternion.Euler(new Vector3(0f, 0f, 90f))); // straight shot
-                Instantiate(prefabToSpawn, transform.position, Quaternion.Euler(new Vector3(0f, 0f, 120f))); // slightly upwards
-                Instantiate(prefabToSpawn, transform.position, Quaternion.Euler(new Vector3(0f, 0f, 60f))); // slightly downwards
+			else if(state >= 10f) // this should be state <= 2f, this is just to test code
+            {
+                for (int i = 0; i < 360; i+=30)
+                {
+                    Instantiate(circularShotSpike, transform.position, Quaternion.Euler(new Vector3(0f, 0f, i)));
+                }
             }
+            
             // can add more states such as spawning smaller enemies
-            state += 0.5f; // increment state here
-		} else {
+            state += 2f; // increment state here
+            if (state > 15f)
+                state = 0;
+
+            timeBtwShots = startTimeBtwShots;
+        }
+        else {
 			timeBtwShots -=Time.deltaTime;
 		}
 
