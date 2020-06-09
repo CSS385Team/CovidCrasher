@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: HandSantizer
   m_EditorClassIdentifier: 
   itemTypeID: 1
-  itemName: Hand Santizer
+  itemName: Hand Sanitizer
   ImagePrefab: {fileID: 7248648695212431903, guid: f3cea3be4eeb567449fefb9a4646176c,
     type: 3}
   price: 60
   assetImage: {fileID: 21300000, guid: f5a5c7e3c8aefa8498d767cb25e08ee8, type: 3}
-  itemDescription: Don't take damage for 3 second
+  itemDescription: Consume to become immune to damage for three seconds

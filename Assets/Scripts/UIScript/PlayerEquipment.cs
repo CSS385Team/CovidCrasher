@@ -37,11 +37,17 @@ public class PlayerEquipment : MonoBehaviour
     }
 
     //called when new weapon is bought from the store 
-    public void addtoGunCollection(GameObject gun)
+    public bool addtoGunCollection(GameObject gun)
     {
+        for (int i = 0; i < gunSize+1; i++)
+        {
+            if (gun == GunCollection[i])
+                return false;
+        }
         gunSize++;
         GunCollection[gunSize] = gun;
         changeGun();
+        return true;
     }
 
     //call when Z is pressed 
@@ -54,8 +60,6 @@ public class PlayerEquipment : MonoBehaviour
         Destroy(PlayerWeapon);
         PlayerWeapon = Instantiate(GunCollection[gunIndex], WeaponSlot.transform, false);
         WeaponSlot.transform.GetChild(2).GetComponent<Text>().text = "Weapon " + (gunIndex+1);
-
-
     }
 
 
