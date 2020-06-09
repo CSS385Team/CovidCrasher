@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class labelStage : MonoBehaviour
 {
-    string[] StageName = {"Oral Cavity", "Esophagus", "Lung" };
+    string[] StageName = {"Nasal Cavity", "Esophagus", "Lung" };
     // Start is called before the first frame update
     private int sceneNum;
     void Start()
