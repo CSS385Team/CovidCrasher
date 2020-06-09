@@ -4320,5 +4320,5 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Controls:\n\nMovement \t\t\t\t-\t WASD\nAiming \t     \t\t\t-\t Mouse
     Cursor\nShoot / Click \t\t\t-\t Left Mouse Button\n\nShop\t\t\t\t\t\t- \t TAB\nUse
-    Items\t\t\t\t- \t 1 2\nChange Weapon  \t\t- \t Z\n\n\tPress 'H' again to close
-    this window."
+    Items\t\t\t\t- \t 1 2\nChange Weapon  \t\t- \t Z\n\n\t\tPress 'H' to close this
+    window."
