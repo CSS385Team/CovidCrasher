@@ -1,4 +1,4 @@
-# COVID Crusher
+# COVID Crasher
 
 A 2D top-down shooter made with Unity, inspired by the exponential spread of COVID-19.
 
