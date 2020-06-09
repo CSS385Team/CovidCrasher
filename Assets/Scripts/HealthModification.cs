@@ -14,22 +14,47 @@ public class HealthModification : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D colliderData)
-    {
-        HealthSystem healthScript = colliderData.gameObject.GetComponent<HealthSystem>();
-
-        if (healthScript != null)
+    {//
+        if (gameObject.CompareTag("Enemy"))
         {
-            if (targetTag == colliderData.gameObject.tag)
+            if (colliderData.gameObject.tag == "Player")
             {
-                // subtract health from the player
+                HealthSystem healthScript = colliderData.gameObject.GetComponent<HealthSystem>();
                 healthScript.ModifyHealth(healthChange);
             }
 
-            if (destroyWhenActivated)
+        } else if (gameObject.CompareTag("Bullet")) {
+            if (colliderData.gameObject.tag == "Enemy" || colliderData.gameObject.tag == "Boss")
             {
-                Destroy(this.gameObject);
-
+                HealthSystem healthScript = colliderData.gameObject.GetComponent<HealthSystem>();
+                healthScript.ModifyHealth(healthChange);
             }
+
+        } else if (gameObject.CompareTag("Boss")) {
+            if (colliderData.gameObject.tag == "Player")
+            {
+                HealthSystem healthScript = colliderData.gameObject.GetComponent<HealthSystem>();
+                healthScript.ModifyHealth(healthChange);
+            }
+        } else {
+
+
         }
+
+
+        //    if (healthScript != null)
+        //{
+        //    if (targetTag == colliderData.gameObject.tag)
+        //    {
+        //        // subtract health from the player
+        //        healthScript.ModifyHealth(healthChange);
+        //    }
+
+        //    if (destroyWhenActivated)
+        //    {
+        //        Destroy(this.gameObject);
+
+        //    }
+        //}
     }
 }
